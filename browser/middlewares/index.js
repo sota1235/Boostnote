@@ -1,6 +1,6 @@
 /**
  * @fileoverview Combine middlewares and export.
  */
-import logger from './logger';
+import logger from './logger'
 
-export default [logger];
+export default [logger]
