@@ -1,4 +1,5 @@
-import { combineReducers, createStore } from 'redux'
+import { combineReducers, createStore, applyMiddleware } from 'redux'
+import middlewares from '../middlewares/index'
 import { routerReducer } from 'react-router-redux'
 import { DEFAULT_CONFIG } from 'browser/main/lib/ConfigManager'
 
@@ -46,6 +47,6 @@ let reducer = combineReducers({
   routing: routerReducer
 })
 
-let store = createStore(reducer)
+let store = createStore(reducer, applyMiddleware(...middlewares))
 
 export default store

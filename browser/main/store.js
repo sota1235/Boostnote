@@ -1,7 +1,8 @@
-import { combineReducers, createStore } from 'redux'
+import { combineReducers, createStore, applyMiddleware } from 'redux'
 import { routerReducer } from 'react-router-redux'
 import ConfigManager from 'browser/main/lib/ConfigManager'
 import { Map, Set } from 'browser/lib/Mutable'
+import middlewares from '../middlewares/index'
 import _ from 'lodash'
 
 function defaultDataMap () {
@@ -496,6 +497,6 @@ let reducer = combineReducers({
   routing: routerReducer
 })
 
-let store = createStore(reducer)
+let store = createStore(reducer, applyMiddleware(...middlewares))
 
 export default store
