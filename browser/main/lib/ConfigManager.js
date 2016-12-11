@@ -10,7 +10,7 @@ let isInitialized = false
 export const DEFAULT_CONFIG = {
   zoom: 1,
   isSideNavFolded: false,
-  listWidth: 200,
+  listWidth: 280,
   navWidth: 200,
   sortBy: 'UPDATED_AT', // 'CREATED_AT', 'UPDATED_AT', 'APLHABETICAL'
   listStyle: 'DEFAULT', // 'DEFAULT', 'SMALL'
