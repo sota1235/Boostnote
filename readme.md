@@ -65,6 +65,7 @@ Products are shipped worldwide. Powered by [Paintory](https://paintory.com/)
 - [Yoshihisa Mochihara](https://github.com/yosmoc)
 - [Mike Resoli](https://github.com/mikeres0)
 - [tjado](https://github.com/tejado)
+- [sota1235](https://github.com/sota1235)
 
 ## Copyright & License
 Copyright (C) 2016 MAISIN&CO.

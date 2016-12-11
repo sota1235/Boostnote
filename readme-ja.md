@@ -76,6 +76,7 @@
 - [Yoshihisa Mochihara](https://github.com/yosmoc)
 - [Mike Resoli](https://github.com/mikeres0)
 - [tjado](https://github.com/tejado)
+- [sota1235](https://github.com/sota1235)
 
 ## Copyright & License
 
