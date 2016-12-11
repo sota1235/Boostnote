@@ -85,6 +85,7 @@ class Main extends React.Component {
   }
 
   handleMouseUp (e) {
+    // Change width of NoteList component.
     if (this.state.isRightSliderFocused) {
       this.setState({
         isRightSliderFocused: false
@@ -99,6 +100,8 @@ class Main extends React.Component {
         })
       })
     }
+
+    // Change width of SideNav component.
     if (this.state.isLeftSliderFocused) {
       this.setState({
         isLeftSliderFocused: false
