@@ -80,20 +80,6 @@ $control-height = 34px
   line-height 150px
   text-align center
 
-.control-contextButton
-  display block
-  width 20px
-  height $control-height - 2
-  navButtonColor()
-  border-left $ui-border
-  font-size 14px
-  line-height 28px
-  padding 0
-  &:active
-    border-color $ui-button--active-backgroundColor
-  &:hover .control-newPostButton-tooltip
-    opacity 1
-
 .control-newPostButton
   display block
   width 36px
@@ -162,7 +148,6 @@ body[data-theme="dark"]
   .control-search-optionList-empty
     color $ui-inactive-text-color
 
-  .control-contextButton,
   .control-newPostButton
     colorDarkDefaultButton()
     border-color $ui-dark-borderColor

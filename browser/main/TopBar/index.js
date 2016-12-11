@@ -192,47 +192,6 @@ class TopBar extends React.Component {
     }
   }
 
-  handleContextButtonClick (e) {
-    let { config } = this.props
-
-    let menu = new Menu()
-    menu.append(new MenuItem({
-      label: 'Create Markdown Note',
-      click: (e) => this.createNote('MARKDOWN_NOTE')
-    }))
-    menu.append(new MenuItem({
-      label: 'Create Snippet Note',
-      click: (e) => this.createNote('SNIPPET_NOTE')
-    }))
-    menu.append(new MenuItem({
-      type: 'separator'
-    }))
-    menu.append(new MenuItem({
-      label: 'Change Default Note',
-      submenu: [
-        {
-          type: 'radio',
-          label: 'Markdown Note',
-          checked: config.ui.defaultNote === 'MARKDOWN_NOTE',
-          click: (e) => this.setDefaultNote('MARKDOWN_NOTE')
-        },
-        {
-          type: 'radio',
-          label: 'Snippet Note',
-          checked: config.ui.defaultNote === 'SNIPPET_NOTE',
-          click: (e) => this.setDefaultNote('SNIPPET_NOTE')
-        },
-        {
-          type: 'radio',
-          label: 'Always Ask',
-          checked: config.ui.defaultNote === 'ALWAYS_ASK',
-          click: (e) => this.setDefaultNote('ALWAYS_ASK')
-        }
-      ]
-    }))
-    menu.popup(remote.getCurrentWindow())
-  }
-
   createNote (noteType) {
     let { dispatch, location } = this.props
     if (noteType !== 'MARKDOWN_NOTE' && noteType !== 'SNIPPET_NOTE') throw new Error('Invalid note type.')
@@ -355,11 +314,6 @@ class TopBar extends React.Component {
             <span styleName='control-newPostButton-tooltip'>
               New Note {OSX ? '⌘' : '^'} + n
             </span>
-          </button>
-          <button styleName='control-contextButton'
-            onClick={(e) => this.handleContextButtonClick(e)}
-          >
-            <i className='fa fa-caret-down'/>
           </button>
         </div>
       </div>
