@@ -26,7 +26,7 @@ class Main extends React.Component {
     this.state = {
       isRightSliderFocused: false,
       listWidth: config.listWidth,
-      navWidth: config.listWidth,
+      navWidth: config.navWidth,
       isLeftSliderFocused: false
     }
   }
@@ -109,10 +109,10 @@ class Main extends React.Component {
         let { dispatch } = this.props
         let navWidth = this.state.navWidth
         // TODO: ConfigManager should dispatch itself.
-        ConfigManager.set({listWidth: navWidth})
+        ConfigManager.set({ navWidth })
         dispatch({
           type: 'SET_NAV_WIDTH',
-          listWidth: navWidth
+          navWidth,
         })
       })
     }
