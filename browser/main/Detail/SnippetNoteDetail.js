@@ -522,6 +522,10 @@ class SnippetNoteDetail extends React.Component {
       >
         <div styleName='info'>
           <div styleName='info-left'>
+            <StarButton styleName='info-left-button'
+              onClick={(e) => this.handleStarButtonClick(e)}
+              isActive={note.isStarred}
+            />
             <TagSelect
               ref='tags'
               value={this.state.note.tags}
@@ -529,10 +533,6 @@ class SnippetNoteDetail extends React.Component {
             />
           </div>
           <div styleName='info-right'>
-            <StarButton styleName='info-right-button'
-              onClick={(e) => this.handleStarButtonClick(e)}
-              isActive={note.isStarred}
-            />
             <button styleName='info-right-button'
               onClick={(e) => this.handleContextButtonClick(e)}
             >
