@@ -188,21 +188,6 @@ class SnippetNoteDetail extends React.Component {
 
   }
 
-  handleShareButtonClick (e) {
-    let menu = new Menu()
-    menu.append(new MenuItem({
-      label: 'Export as a File',
-      disabled: true,
-      click: (e) => this.handlePreferencesButtonClick(e)
-    }))
-    menu.append(new MenuItem({
-      label: 'Export to Web',
-      disabled: true,
-      click: (e) => this.handlePreferencesButtonClick(e)
-    }))
-    menu.popup(remote.getCurrentWindow())
-  }
-
   handleContextButtonClick (e) {
     context.popup([{
       label: 'Delete',
@@ -560,15 +545,6 @@ class SnippetNoteDetail extends React.Component {
               onClick={(e) => this.handleStarButtonClick(e)}
               isActive={note.isStarred}
             />
-            <button styleName='info-right-button'
-              onClick={(e) => this.handleShareButtonClick(e)}
-              disabled
-            >
-              <i className='fa fa-share-alt fa-fw'/>
-              <span styleName='info-right-button-tooltip'
-                style={{right: 20}}
-              >Share Note</span>
-            </button>
             <button styleName='info-right-button'
               onClick={(e) => this.handleContextButtonClick(e)}
             >
