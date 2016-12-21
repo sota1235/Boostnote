@@ -229,9 +229,6 @@ class MarkdownNoteDetail extends React.Component {
               onClick={(e) => this.handleContextButtonClick(e)}
             >
               <i className='fa fa-ellipsis-v' />
-              <span styleName='info-right-button-tooltip'
-                style={{right: 5}}
-              >More Options</span>
             </button>
           </div>
         </div>
