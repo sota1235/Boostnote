@@ -111,7 +111,7 @@ class TagSelect extends React.Component {
             <button styleName='tag-removeButton'
               onClick={(e) => this.handleTagRemoveButtonClick(tag)(e)}
             >
-              <i className='fa fa-times fa-fw'/>
+              <i className='fa fa-times fa-fw tag-removeButton-icon'/>
             </button>
           </span>
         )
