@@ -214,14 +214,11 @@ class MarkdownNoteDetail extends React.Component {
       >
         <div styleName='info'>
           <div styleName='info-left'>
-            <div styleName='info-left-bottom'>
-              <TagSelect
-                styleName='info-left-bottom-tagSelect'
-                ref='tags'
-                value={this.state.note.tags}
-                onChange={(e) => this.handleChange(e)}
-              />
-            </div>
+            <TagSelect
+              ref='tags'
+              value={this.state.note.tags}
+              onChange={(e) => this.handleChange(e)}
+            />
           </div>
           <div styleName='info-right'>
             <StarButton styleName='info-right-button'
