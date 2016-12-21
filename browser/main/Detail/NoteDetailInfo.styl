@@ -1,0 +1,39 @@
+$info-height = 60px
+
+.info
+  absolute top left right
+  height $info-height
+  border-bottom $ui-border
+  background-color $ui-backgroundColor
+
+.info-left
+  float left
+  padding 0 5px
+  margin 18px 2px
+
+.info-right
+  float right
+
+.info-right-button
+  width 34px
+  height 34px
+  border-radius 17px
+  navButtonColor()
+  border $ui-border
+  font-size 14px
+  margin 13px 2px
+  padding 0
+  &:active
+    border-color $ui-button--focus-borderColor
+  &:hover .info-right-button-tooltip
+    opacity 1
+  &:focus
+    border-color $ui-button--focus-borderColor
+
+.info-right-button-tooltip
+  tooltip()
+  position fixed
+  top 45px
+  padding 5px
+  opacity 0
+  border-radius 2px
