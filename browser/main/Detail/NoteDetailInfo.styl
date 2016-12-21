@@ -23,7 +23,10 @@ $info-height = 60px
   &:hover .info-right-button-tooltip
     opacity 1
   &:focus
-    border-color $ui-button--focus-borderColor
+    border-color $ui-favorite-star-button-color
+  &:active, &:active:hover
+    background-color $ui-favorite-star-button-color
+    color $ui-button--active-color
 
 .info-right
   float right
