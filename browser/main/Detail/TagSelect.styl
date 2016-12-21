@@ -59,6 +59,21 @@ $ui-dark-theme-tag-bg = rgba(255, 255, 255, 0.3)
   &:disabled
     background-color $ui-input--disabled-backgroundColor = #DDD
 
+.add-tag-button
+  display inline
+  margin-left 5px
+  width 20px
+  height 20px
+  border none
+  border-radius 20px
+  padding 0
+  color #FFFFFF
+  &:hover
+    background-color rgba(0, 0, 0, 0.3)
+  &:active, &:active:hover
+    background-color rgba(0, 0, 0, 0.5)
+    color $ui-button--active-color
+
 body[data-theme="dark"]
   .icon
     color $ui-dark-button-color
@@ -82,3 +97,10 @@ body[data-theme="dark"]
       border-color $ui-input--focus-borderColor = #369DCD
     &:disabled
       background-color $ui-input--disabled-backgroundColor = #DDD
+
+  .add-tag-button
+    &:hover
+      background-color rgba(255, 255, 255, 0.3)
+    &:active, &:active:hover
+      background-color rgba(255, 255, 255, 0.5)
+      color $ui-button--active-color
