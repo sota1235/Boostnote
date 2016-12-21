@@ -125,10 +125,7 @@ class TagSelect extends React.Component {
         }
         styleName='root'
       >
-        <i styleName='icon'
-          className='fa fa-tags'
-        />
-          {tagList}
+        {tagList}
         <input styleName='newTag'
           ref='newTag'
           value={this.state.newTag}
