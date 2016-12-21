@@ -1,3 +1,6 @@
+$ui-white-theme-tag-bg = rgba(0, 0, 0, 0.3)
+$ui-dark-theme-tag-bg = rgba(255, 255, 255, 0.3)
+
 .root
   display: inline
   position relative
@@ -6,22 +9,22 @@
 .tag
   display inline-block
   margin 0 2px
+  padding 0 10px
   vertical-align middle
   height 20px
-  background-color white
-  border-radius 3px
+  background-color $ui-white-theme-tag-bg
+  border-radius 20px
   overflow hidden
   clearfix()
 
 .tag-removeButton
-  float left
+  float right
   height 20px
   width 18px
   margin 0
   padding 0
   border-style solid
-  border-color $ui-button--focus-borderColor
-  border-width 0 0 0 3px
+  border-width 0
   line-height 18px
   background-color transparent
   color $ui-button-color
@@ -35,6 +38,9 @@
     border-color $ui-button--focus-borderColor
 
 .tag-label
+  font-size 12px
+  font-weight bold
+  color: #FFFFFF
   float left
   height 20px
   line-height 20px
@@ -61,7 +67,7 @@ body[data-theme="dark"]
     color $ui-dark-button-color
 
   .tag
-    background-color $ui-dark-button--hover-backgroundColor
+    background-color $ui-dark-theme-tag-bg
 
   .tag-removeButton
     border-color $ui-button--focus-borderColor
