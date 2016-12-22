@@ -394,7 +394,7 @@ class NoteList extends React.Component {
             }
             onClick={(e) => this.handleListStyleButtonClick(e, 'DEFAULT')}
           >
-            <i className='fa fa-th-list'/>
+            <i className='fa fa-th-large'/>
             <span styleName='control-button-tooltip'>
               Default Size
             </span>
@@ -405,7 +405,7 @@ class NoteList extends React.Component {
             }
             onClick={(e) => this.handleListStyleButtonClick(e, 'SMALL')}
           >
-            <i className='fa fa-list'/>
+            <i className='fa fa-list-ul'/>
             <span styleName='control-button-tooltip'>
               Small Size
             </span>
