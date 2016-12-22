@@ -53,7 +53,6 @@ class StarButton extends React.Component {
             : 'fa fa-star-o'
           }
         />
-        <span styleName='tooltip'>Star Note</span>
       </button>
     )
   }
