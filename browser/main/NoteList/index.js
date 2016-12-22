@@ -6,6 +6,7 @@ import _ from 'lodash'
 import ee from 'browser/main/lib/eventEmitter'
 import dataApi from 'browser/main/lib/dataApi'
 import ConfigManager from 'browser/main/lib/ConfigManager'
+import StarButton from 'browser/main/Detail/StarButton'
 
 const { remote } = require('electron')
 const { Menu, MenuItem, dialog } = remote
@@ -359,6 +360,13 @@ class NoteList extends React.Component {
                 </div>
               </div>
             }
+
+            <i styleName='item-star'
+              className={note.isStarred
+                ? 'fa fa-star'
+                : 'fa fa-star-o'
+              }
+            />
           </div>
         )
       })
