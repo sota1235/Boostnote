@@ -533,6 +533,7 @@ class SnippetNoteDetail extends React.Component {
             />
           </div>
           <div styleName='info-right'>
+            <p styleName='info-right-date'>Last updated at {'dummy'}</p>
             <button styleName='info-right-button'
               onClick={(e) => this.handleContextButtonClick(e)}
             >
