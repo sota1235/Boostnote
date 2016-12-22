@@ -39,25 +39,12 @@ $control-height = 30px
     color $ui-active-color
   &:hover
     color $ui-text-color
-    .control-button-tooltip
-      opacity 1
 
 .control-button--active
   @extend .control-button
   color $ui-active-color
   &:hover
     color $ui-active-color
-
-.control-button-tooltip
-  tooltip()
-  position absolute
-  top 20px
-  right 5px
-  padding 5px
-  opacity 0
-  white-space nowrap
-  border-radius 2px
-  z-index 1
 
 .list
   absolute left right bottom
