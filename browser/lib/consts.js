@@ -30,7 +30,7 @@ const consts = {
     'Dodger Blue',
     'Violet Eggplant'
   ],
-  THEMES: ['default'].concat(themes)
+  THEMES: themes,
 }
 
 module.exports = consts

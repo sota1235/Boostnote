@@ -170,10 +170,10 @@ export default class MarkdownPreview extends React.Component {
   }
 
   setCodeTheme (theme) {
-    theme = consts.THEMES.some((_theme) => _theme === theme)
-      ? theme
-      : 'default'
-    this.getWindow().document.getElementById('codeTheme').href = `${appPath}/node_modules/codemirror/theme/${theme}.css`
+    const pathToCss = consts.THEMES.some((_theme) => _theme === theme)
+      ? `theme/${theme}.css`
+      : 'lib/codemirror.css'
+    this.getWindow().document.getElementById('codeTheme').href = `${appPath}/node_modules/codemirror/${pathToCss}`
   }
 
   rewriteIframe () {
