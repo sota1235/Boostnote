@@ -5,20 +5,21 @@
 .control
   absolute top left right
   user-select none
-  height 25px
-  font-size 10px
-  border-bottom $ui-border
+  height 30px
+  font-size 12px
   line-height 25px
   display flex
-  background-color $ui-backgroundColor
+  background-color $ui-noteList-backgroundColor
   color $ui-inactive-text-color
 
 .control-sortBy
   flex 1
-  padding-left 5px
+  padding-left 25px
 
 .control-sortBy-select
-  margin-left 5px
+  margin-left 0
+  font-size 12px
+  color $ui-inactive-text-color
   padding 0
   border none
   background-color transparent
@@ -212,7 +213,7 @@ body[data-theme="dark"]
     vertical-align middle
 
   .control
-    background-color $ui-dark-backgroundColor
+    background-color $ui-dark-noteList-backgroundColor
     border-color $ui-dark-borderColor
   .control-sortBy-select
     color $ui-dark-text-color
