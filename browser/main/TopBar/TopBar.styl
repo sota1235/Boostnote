@@ -1,19 +1,19 @@
 .root
   position relative
-  background-color $ui-backgroundColor
+  background-color $ui-noteList-backgroundColor
   height $topBar-height - 1
+
 .root--expanded
   @extend .root
+
 $control-height = 34px
 
 .control
   position absolute
-  top 8px
+  top 13px
   left 8px
   right 8px
   height $control-height
-  border $ui-border
-  border-radius 20px
   overflow hidden
   display flex
 
@@ -28,6 +28,7 @@ $control-height = 34px
   line-height 32px
   width 35px
   color $ui-inactive-text-color
+  background-color $ui-noteList-backgroundColor
 
 .control-search-input
   display block
@@ -38,6 +39,7 @@ $control-height = 34px
     height 100%
     outline none
     border none
+    background-color $ui-noteList-backgroundColor
 
 .control-search-optionList
   position fixed
@@ -82,10 +84,11 @@ $control-height = 34px
 
 .control-newPostButton
   display block
-  width 36px
+  width 32px
   height $control-height - 2
   navButtonColor()
-  border-left $ui-border
+  border $ui-border
+  border-radius 32px
   font-size 14px
   line-height 28px
   padding 0
@@ -108,7 +111,7 @@ $control-height = 34px
 
 body[data-theme="dark"]
   .root, .root--expanded
-    background-color $ui-dark-backgroundColor
+    background-color $ui-dark-noteList-backgroundColor
 
   .control
     border-color $ui-dark-borderColor
@@ -120,11 +123,13 @@ body[data-theme="dark"]
     line-height 32px
     width 35px
     color $ui-dark-inactive-text-color
+    background-color $ui-dark-noteList-backgroundColor
 
   .control-search-input
     input
-      background-color $dark-background-color
+      background-color $ui-dark-noteList-backgroundColor
       color $ui-dark-text-color
+
   .control-search-optionList
     color white
     background-color $ui-dark-button--hover-backgroundColor
@@ -151,6 +156,7 @@ body[data-theme="dark"]
   .control-newPostButton
     colorDarkDefaultButton()
     border-color $ui-dark-borderColor
+    background-color $ui-dark-noteList-backgroundColor
     &:active
       border-color $ui-dark-button--active-backgroundColor
 
