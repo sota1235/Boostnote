@@ -9,7 +9,6 @@ class TagSelect extends React.Component {
 
     this.state = {
       newTag: '',
-      inputReady: false,
     }
   }
 
@@ -77,7 +76,6 @@ class TagSelect extends React.Component {
       newTag: ''
     }, () => {
       this.value = value
-      this.setState({ inputReady: false })
       this.props.onChange()
     })
   }
@@ -98,12 +96,6 @@ class TagSelect extends React.Component {
       this.value = value
       this.props.onChange()
     }
-  }
-
-  handleNewTagInputReady (e) {
-    this.setState({
-      inputReady: true,
-    })
   }
 
   render () {
@@ -134,27 +126,13 @@ class TagSelect extends React.Component {
         styleName='root'
       >
         {tagList}
-        {(() => {
-          if (this.state.inputReady) {
-            return (
-              <input styleName='newTag'
-                ref='newTag'
-                value={this.state.newTag}
-                placeholder='Add tag...'
-                onChange={(e) => this.handleNewTagInputChange(e)}
-                onKeyDown={(e) => this.handleNewTagInputKeyDown(e)}
-              />
-            )
-          }
-
-          return (
-            <button styleName='add-tag-button'
-              onClick={(e) => this.handleNewTagInputReady(e)}
-            >
-              <i className='fa fa-plus' />
-            </button>
-          )
-        })()}
+        <input styleName='newTag'
+          ref='newTag'
+          value={this.state.newTag}
+          placeholder='Add tag...'
+          onChange={(e) => this.handleNewTagInputChange(e)}
+          onKeyDown={(e) => this.handleNewTagInputKeyDown(e)}
+        />
       </div>
     )
   }
