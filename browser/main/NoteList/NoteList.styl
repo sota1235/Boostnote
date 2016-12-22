@@ -1,11 +1,14 @@
+$control-height = 30px
+
 .root
   absolute left bottom
   top $topBar-height - 1
+  background-color $ui-noteList-backgroundColor
 
 .control
   absolute top left right
   user-select none
-  height 30px
+  height $control-height
   font-size 12px
   line-height 25px
   display flex
@@ -58,15 +61,15 @@
 
 .list
   absolute left right bottom
-  top 24px
+  top $control-height
   overflow auto
 
 .item
   position relative
-  border-bottom $ui-border
-  padding 2px 5px
+  padding 20px 25px
   user-select none
   cursor pointer
+  background-color $ui-noteList-backgroundColor
   transition background-color 0.15s
   &:hover
     background-color alpha($ui-active-color, 20%)
@@ -109,10 +112,11 @@
   transition 0.15s
 
 .item-title
-  height 24px
+  font-size 14px
+  height 40px
   box-sizing border-box
   line-height 24px
-  padding 0
+  padding 10px 0
   overflow ellipsis
   color $ui-text-color
 
@@ -126,6 +130,8 @@
   color $ui-inactive-text-color
 
 .item-bottom
+  position relative
+  bottom 0px
   margin-top 2px
   height 20px
   font-size 12px
@@ -145,17 +151,15 @@
   line-height 20px
 
 .item-bottom-tagList-item
-  margin 0 4px
-  padding 0 4px
+  font-size 12px
+  margin-right 8px
+  padding 0 10px
   height 20px
   box-sizing border-box
-  border-radius 3px
+  border-radius 20px
   vertical-align middle
-  border-style solid
-  border-color $ui-button--focus-borderColor
-  border-width 0 0 0 3px
-  background-color $ui-backgroundColor
-  color $ui-text-color
+  background-color $ui-tag-backgroundColor
+  color #FFFFFF
 
 .item-bottom-tagList-empty
   color $ui-inactive-text-color
@@ -165,16 +169,16 @@
 
 .item-bottom-time
   color $ui-inactive-text-color
-  margin-left 5px
-  font-size 10px
+  font-size 12px
 
 body[data-theme="dark"]
   .root
     border-color $ui-dark-borderColor
-    background-color $ui-dark-backgroundColor
+    background-color $ui-dark-noteList-backgroundColor
 
   .item
     border-color $ui-dark-borderColor
+    background-color $ui-dark-noteList-backgroundColor
     &:hover
       background-color alpha($ui-active-color, 20%)
 
@@ -204,8 +208,7 @@ body[data-theme="dark"]
     color $ui-dark-button-color
 
   .item-bottom-tagList-item
-    border-color $ui-dark-button--focus-borderColor
-    background-color $ui-dark-button--hover-backgroundColor
+    background-color $ui-dark-tag-backgroundColor
     color $ui-dark-text-color
 
   .item-bottom-tagList-empty

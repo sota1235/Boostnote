@@ -336,11 +336,13 @@ class NoteList extends React.Component {
             onClick={(e) => this.handleNoteClick(e, note.storage + '-' + note.key)}
             onContextMenu={(e) => this.handleNoteContextMenu(e, note.storage + '-' + note.key)}
           >
+            {config.listStyle === 'DEFAULT' &&
+              <div styleName='item-bottom-time'>
+                {moment(config.sortBy === 'CREATED_AT' ? note.createdAt : note.updatedAt).fromNow()}
+              </div>
+            }
+
             <div styleName='item-title'>
-              {note.type === 'SNIPPET_NOTE'
-                ? <i styleName='item-title-icon' className='fa fa-fw fa-code'/>
-                : <i styleName='item-title-icon' className='fa fa-fw fa-file-text-o'/>
-              }
               {note.title.trim().length > 0
                 ? note.title
                 : <span styleName='item-title-empty'>Empty</span>
@@ -349,18 +351,11 @@ class NoteList extends React.Component {
 
             {config.listStyle === 'DEFAULT' &&
               <div styleName='item-bottom'>
-                <i styleName='item-bottom-tagIcon'
-                  className='fa fa-tags fa-fw'
-                />
                 <div styleName='item-bottom-tagList'>
                   {tagElements.length > 0
                     ? tagElements
-                    : <span styleName='item-bottom-tagList-empty'>Not tagged yet</span>
+                    : ''
                   }
-                </div>
-
-                <div styleName='item-bottom-time'>
-                  {moment(config.sortBy === 'CREATED_AT' ? note.createdAt : note.updatedAt).fromNow()}
                 </div>
               </div>
             }
