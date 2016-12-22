@@ -188,15 +188,21 @@ body[data-theme="dark"]
     border-color $ui-dark-borderColor
     background-color $ui-dark-noteList-backgroundColor
 
+  .control
+    background-color $ui-dark-noteList-backgroundColor
+
   .item
     border-color $ui-dark-borderColor
     background-color $ui-dark-noteList-backgroundColor
+    &:active
+      background-color $ui-active-color
     &:hover
       background-color alpha($ui-active-color, 20%)
 
   .item--active
     @extend .item
     border-color $ui-dark-borderColor
+    background-color $ui-active-color
     .item-title
       color white
     .item-bottom-tagList-item
