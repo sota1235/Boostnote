@@ -55,6 +55,7 @@ body
   line-height 1.6
   overflow-x hidden
   user-select all
+  background-color $ui-noteDetail-backgroundColor
   .katex
     font 400 1.2em 'KaTeX_Main'
     line-height 1.2em
@@ -273,13 +274,14 @@ table
 themeDarkBackground = darken(#21252B, 10%)
 themeDarkText = #DDDDDD
 themeDarkBorder = lighten(themeDarkBackground, 20%)
-themeDarkPreview = #282C34
+themeDarkPreview = $ui-dark-noteDetail-backgroundColor
 themeDarkTableOdd = themeDarkPreview
 themeDarkTableEven = darken(themeDarkPreview, 10%)
 themeDarkTableHead = themeDarkTableEven
 themeDarkTableBorder = themeDarkBorder
 themeDarkModalButtonDefault = themeDarkPreview
 themeDarkModalButtonDanger = #BF360C
+
 body[data-theme="dark"]
   color themeDarkText
   border-color themeDarkBorder
