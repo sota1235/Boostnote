@@ -22,6 +22,10 @@ const NoteItemSimple = ({ isActive, note, handleNoteClick, handleNoteContextMenu
     onContextMenu={e => handleNoteContextMenu(e, `${note.storage}-${note.key}`)}
   >
     <div styleName='item-simple-title'>
+      {note.type === 'SNIPPET_NOTE'
+        ? <i styleName='item-simple-title-icon' className='fa fa-fw fa-code' />
+        : <i styleName='item-simple-title-icon' className='fa fa-fw fa-file-text-o' />
+      }
       {note.title.trim().length > 0
         ? note.title
         : <span styleName='item-simple-title-empty'>Empty</span>
@@ -35,6 +39,7 @@ NoteItemSimple.propTypes = {
   note: PropTypes.shape({
     storage: PropTypes.string.isRequired,
     key: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
     title: PropTypes.string.isrequired,
   }),
   handleNoteClick: PropTypes.func.isRequired,
