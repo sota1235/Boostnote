@@ -3,7 +3,7 @@
  */
 import React, { PropTypes } from 'react'
 import CSSModules from 'browser/lib/CSSModules'
-import styles from './NoteItem.styl'
+import styles from './NoteItemSimple.styl'
 
 /**
  * @description Note item component when using simple display mode.
@@ -14,17 +14,17 @@ import styles from './NoteItem.styl'
  */
 const NoteItemSimple = ({ isActive, note, handleNoteClick, handleNoteContextMenu }) => (
   <div styleName={isActive
-      ? 'item--active'
-      : 'item'
+      ? 'item-simple--active'
+      : 'item-simple'
     }
     key={`${note.storage}-${note.key}`}
     onClick={e => handleNoteClick(e, `${note.storage}-${note.key}`)}
     onContextMenu={e => handleNoteContextMenu(e, `${note.storage}-${note.key}`)}
   >
-    <div styleName='item-title'>
+    <div styleName='item-simple-title'>
       {note.title.trim().length > 0
         ? note.title
-        : <span styleName='item-title-empty'>Empty</span>
+        : <span styleName='item-simple-title-empty'>Empty</span>
       }
     </div>
   </div>
