@@ -327,6 +327,7 @@ class NoteList extends React.Component {
           })
           : []
         let isActive = location.query.key === note.storage + '-' + note.key
+        const isDefault = config.listStyle === 'DEFAULT'
         return (
           <div styleName={isActive
               ? 'item--active'
@@ -336,7 +337,7 @@ class NoteList extends React.Component {
             onClick={(e) => this.handleNoteClick(e, note.storage + '-' + note.key)}
             onContextMenu={(e) => this.handleNoteContextMenu(e, note.storage + '-' + note.key)}
           >
-            {config.listStyle === 'DEFAULT' &&
+            {isDefault &&
               <div styleName='item-bottom-time'>
                 {moment(config.sortBy === 'CREATED_AT' ? note.createdAt : note.updatedAt).fromNow()}
               </div>
@@ -349,7 +350,7 @@ class NoteList extends React.Component {
               }
             </div>
 
-            {config.listStyle === 'DEFAULT' &&
+            {isDefault &&
               <div styleName='item-bottom'>
                 <div styleName='item-bottom-tagList'>
                   {tagElements.length > 0
@@ -360,12 +361,14 @@ class NoteList extends React.Component {
               </div>
             }
 
-            <i styleName='item-star'
-              className={note.isStarred
-                ? 'fa fa-star'
-                : 'fa fa-star-o'
-              }
-            />
+            {isDefault &&
+              <i styleName='item-star'
+                className={note.isStarred
+                  ? 'fa fa-star'
+                  : 'fa fa-star-o'
+                }
+              />
+            }
           </div>
         )
       })
