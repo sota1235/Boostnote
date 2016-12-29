@@ -19,8 +19,6 @@ $control-height = 30px
     color white
     .item-title
     .item-title-empty
-    .item-title-icon
-    .item-bottom-tagIcon
     .item-bottom-tagList-empty
     .item-bottom-time
       color white
@@ -34,8 +32,6 @@ $control-height = 30px
   color white
   .item-title
   .item-title-empty
-  .item-title-icon
-  .item-bottom-tagIcon
   .item-bottom-tagList-empty
   .item-bottom-time
     color white
@@ -44,13 +40,6 @@ $control-height = 30px
     color white
   &:hover
     background-color $ui-active-color
-
-.item-border
-  absolute top bottom left right
-  border-style solid
-  border-width 2px
-  border-color transparent
-  transition 0.15s
 
 .item-title
   font-size 14px
@@ -61,11 +50,6 @@ $control-height = 30px
   padding-bottom 20px
   overflow ellipsis
   color $ui-text-color
-
-.item-title-icon
-  font-size 12px
-  color $ui-inactive-text-color
-  padding-right 3px
 
 .item-title-empty
   font-weight normal
@@ -80,12 +64,6 @@ $control-height = 30px
   line-height 20px
   overflow ellipsis
   display flex
-
-.item-bottom-tagIcon
-  vertical-align middle
-  color $ui-button-color
-  height 20px
-  line-height 20px
 
 .item-bottom-tagList
   flex 1
@@ -154,14 +132,8 @@ body[data-theme="dark"]
   .item-title
     color $ui-dark-text-color
 
-  .item-title-icon
-    color $ui-darkinactive-text-color
-
   .item-title-empty
     color $ui-dark-inactive-text-color
-
-  .item-bottom-tagIcon
-    color $ui-dark-button-color
 
   .item-bottom-tagList-item
     background-color $ui-dark-tag-backgroundColor
