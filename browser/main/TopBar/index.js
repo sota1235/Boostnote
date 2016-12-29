@@ -312,7 +312,7 @@ class TopBar extends React.Component {
             onClick={(e) => this.handleNewPostButtonClick(e)}>
             <i className='fa fa-plus'/>
             <span styleName='control-newPostButton-tooltip'>
-              New Note {OSX ? '⌘' : '^'} + n
+              Make a Note {OSX ? '⌘' : '^'} + n
             </span>
           </button>
         </div>

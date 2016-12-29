@@ -1,20 +1,24 @@
 @import('NoteDetailInfo')
+@import('DetailVars')
 
 .root
   absolute top bottom right
   border-width 0 0 1px
   border-style solid
   border-color $ui-borderColor
+  background-color $ui-noteDetail-backgroundColor
 
 .body
   absolute left right
-  top $info-height
+  left $note-detail-left-margin
+  right $note-detail-right-margin
+  top $info-height + $info-margin-under-border
   bottom $statusBar-height
+  background-color $ui-noteDetail-backgroundColor
 
 .body .description
   absolute top left right
   height 80px
-  border-bottom $ui-border
 
 .body .description textarea
   display block
@@ -24,20 +28,19 @@
   border none
   padding 10px
   line-height 1.6
+  background-color $ui-noteDetail-backgroundColor
 
 .tabList
   absolute left right
   top 80px
   height 30px
-  border-bottom $ui-border
   display flex
-  background-color $ui-backgroundColor
+  background-color $ui-noteDetail-backgroundColor
 
 .tabList .list
   flex 1
   display flex
   overflow hidden
-  border-right $ui-border
 
 .tabList .plusButton
   navButtonColor()
@@ -45,7 +48,7 @@
 
 .tabView
   absolute left right bottom
-  top 110px
+  top 130px
 
 .tabView-content
   absolute top left right bottom
@@ -66,42 +69,18 @@
 body[data-theme="dark"]
   .root
     border-color $ui-dark-borderColor
+    background-color $ui-dark-noteDetail-backgroundColor
 
-  .info
-    border-bottom-color $ui-dark-borderColor
-    background-color $ui-dark-backgroundColor
-
-  .info-delete
-    color $ui-dark-text-color
-
-  .info-delete-confirmButton
-    colorDarkDangerButton()
-    color $ui-dark-text-color
-
-  .info-delete-cancelButton
-    colorDarkDefaultButton()
-    border-color $ui-dark-borderColor
-    color $ui-dark-text-color
-
-  .info-right-button
-    navDarkButtonColor()
-    border-color $ui-dark-borderColor
-    &:active
-      border-color $ui-dark-button--focus-borderColor
-    &:focus
-      border-color $ui-button--focus-borderColor
-
-  .body .description
-    border-bottom-color $ui-dark-borderColor
+  .body
+    background-color $ui-dark-noteDetail-backgroundColor
 
   .body .description textarea
-    background-color $ui-dark-button--hover-backgroundColor
+    background-color $ui-dark-noteDetail-backgroundColor
     color white
 
   .tabList
     background-color $ui-button--active-backgroundColor
-    border-bottom-color $ui-dark-borderColor
-    background-color $ui-dark-backgroundColor
+    background-color $ui-dark-noteDetail-backgroundColor
 
   .tabList .list
     border-color $ui-dark-borderColor

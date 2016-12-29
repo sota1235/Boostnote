@@ -1,10 +1,15 @@
+@import('DetailVars')
+
 $info-height = 60px
+$info-margin-under-border = 27px
 
 .info
   absolute top left right
+  left $note-detail-left-margin
+  right $note-detail-right-margin
   height $info-height
   border-bottom $ui-border
-  background-color $ui-backgroundColor
+  background-color $ui-noteDetail-backgroundColor
 
 .info-left
   float left
@@ -44,3 +49,29 @@ $info-height = 60px
   &:hover
     opacity 1
     background-color $ui-button--hover-backgroundColor
+
+
+body[data-theme="dark"]
+  .info
+    border-color $ui-dark-borderColor
+    background-color $ui-dark-noteDetail-backgroundColor
+
+  .info-delete
+    color $ui-dark-text-color
+
+  .info-delete-confirmButton
+    colorDarkDangerButton()
+    color $ui-dark-text-color
+
+  .info-delete-cancelButton
+    colorDarkDefaultButton()
+    border-color $ui-dark-borderColor
+    color $ui-dark-text-color
+
+  .info-right-button
+    navDarkButtonColor()
+    border-color $ui-dark-borderColor
+    &:active
+      border-color $ui-dark-button--focus-borderColor
+    &:focus
+      border-color $ui-button--focus-borderColor

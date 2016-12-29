@@ -73,7 +73,7 @@ class SideNav extends React.Component {
           <button styleName={isHomeActive ? 'menu-button--active' : 'menu-button'}
             onClick={(e) => this.handleHomeButtonClick(e)}
           >
-            <i className='fa fa-files-o fa-fw'/>
+            <i className='fa fa-book fa-fw'/>
             <span styleName='menu-button-label'>All Notes</span>
           </button>
           <button styleName={isStarredActive ? 'menu-button--active' : 'menu-button'}

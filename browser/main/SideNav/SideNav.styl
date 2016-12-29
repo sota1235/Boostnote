@@ -1,19 +1,17 @@
 .root
   absolute top left bottom
   width $sideNav-width
-  border-right $ui-border
   background-color $ui-backgroundColor
   user-select none
   color $ui-text-color
 
 .top
   height $topBar-height
-  border-bottom $ui-border
 
 .top-menu
   navButtonColor()
   height $topBar-height - 1
-  padding 0 10px
+  padding 0 15px
   font-size 14px
   width 100%
   text-align left
@@ -23,12 +21,12 @@
   overflow ellipsis
 
 .menu
-  margin 0
+  margin-bottom 30px
 
 .menu-button
   navButtonColor()
   height 32px
-  padding 0 10px
+  padding 0 15px
   font-size 14px
   width 100%
   text-align left
@@ -46,8 +44,6 @@
 
 .storageList
   absolute left right
-  bottom 32px
-  top 120px
   overflow-y auto
 
 .storageList-empty

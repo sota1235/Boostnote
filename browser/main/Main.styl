@@ -11,15 +11,10 @@
 
 .slider
   absolute top bottom
-  width 1px
-  background-color $ui-borderColor
-  border-width 0
-  border-style solid
-  border-color $ui-borderColor
+  width 0
 
 .slider--active
   @extend .slider
-  background-color $ui-button--active-backgroundColor
 
 .slider-hitbox
   absolute top bottom left right
@@ -32,10 +27,3 @@
 body[data-theme="dark"]
   .root
     absolute top left bottom right
-
-  .slider
-    background-color $ui-dark-borderColor
-    border-color $ui-dark-borderColor
-
-  .slider--active
-    background-color $ui-button--active-backgroundColor

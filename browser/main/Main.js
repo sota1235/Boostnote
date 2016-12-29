@@ -165,7 +165,7 @@ class Main extends React.Component {
         />
         {!config.isSideNavFolded &&
           <div styleName={this.state.isLeftSliderFocused ? 'slider--active' : 'slider'}
-            style={{left: this.state.navWidth - 1}}
+            style={{left: this.state.navWidth}}
             onMouseDown={(e) => this.handleLeftSlideMouseDown(e)}
             draggable='false'
           >
@@ -202,7 +202,7 @@ class Main extends React.Component {
             <div styleName='slider-hitbox' />
           </div>
           <Detail
-            style={{left: this.state.listWidth + 1}}
+            style={{left: this.state.listWidth}}
             {..._.pick(this.props, [
               'dispatch',
               'data',
