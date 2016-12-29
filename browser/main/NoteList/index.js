@@ -6,6 +6,8 @@ import _ from 'lodash'
 import ee from 'browser/main/lib/eventEmitter'
 import dataApi from 'browser/main/lib/dataApi'
 import ConfigManager from 'browser/main/lib/ConfigManager'
+import NoteItem from './NoteItem'
+import NoteItemSimple from './NoteItemSimple'
 
 const { remote } = require('electron')
 const { Menu, MenuItem, dialog } = remote
@@ -314,62 +316,40 @@ class NoteList extends React.Component {
       .sort(sortFunc)
 
     let noteList = notes
-      .map((note) => {
-        if (note == null) return null
-        let tagElements = _.isArray(note.tags)
-          ? note.tags.map((tag) => {
-            return (
-              <span styleName='item-bottom-tagList-item'
-                key={tag}>
-                {tag}
-              </span>
-            )
-          })
-          : []
-        let isActive = location.query.key === note.storage + '-' + note.key
+      .map(note => {
+        if (note == null) {
+          return null
+        }
+
         const isDefault = config.listStyle === 'DEFAULT'
+        const isActive = location.query.key === note.storage + '-' + note.key
+        const dateDisplay = moment(
+          config.sortBy === 'CREATED_AT' ?
+            note.createdAt : note.updatedAt
+        ).fromNow()
+        const key = `${note.storage}-${note.key}`
+
+        if (isDefault) {
+          return (
+            <NoteItem
+              isActive={isActive}
+              note={note}
+              dateDisplay={dateDisplay}
+              key={key}
+              handleNoteClick={this.handleNoteClick.bind(this)}
+              handleNoteContextMenu={this.handleNoteContextMenu.bind(this)}
+            />
+          )
+        }
+
         return (
-          <div styleName={isActive
-              ? 'item--active'
-              : 'item'
-            }
-            key={note.storage + '-' + note.key}
-            onClick={(e) => this.handleNoteClick(e, note.storage + '-' + note.key)}
-            onContextMenu={(e) => this.handleNoteContextMenu(e, note.storage + '-' + note.key)}
-          >
-            {isDefault &&
-              <div styleName='item-bottom-time'>
-                {moment(config.sortBy === 'CREATED_AT' ? note.createdAt : note.updatedAt).fromNow()}
-              </div>
-            }
-
-            <div styleName='item-title'>
-              {note.title.trim().length > 0
-                ? note.title
-                : <span styleName='item-title-empty'>Empty</span>
-              }
-            </div>
-
-            {isDefault &&
-              <div styleName='item-bottom'>
-                <div styleName='item-bottom-tagList'>
-                  {tagElements.length > 0
-                    ? tagElements
-                    : ''
-                  }
-                </div>
-              </div>
-            }
-
-            {isDefault &&
-              <i styleName='item-star'
-                className={note.isStarred
-                  ? 'fa fa-star'
-                  : 'fa fa-star-o'
-                }
-              />
-            }
-          </div>
+          <NoteItemSimple
+            isActive={isActive}
+            note={note}
+            key={key}
+            handleNoteClick={this.handleNoteClick.bind(this)}
+            handleNoteContextMenu={this.handleNoteContextMenu.bind(this)}
+          />
         )
       })
 
