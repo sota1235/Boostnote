@@ -7,7 +7,7 @@ $control-height = 30px
 
 .item-simple
   position relative
-  padding 20px 25px
+  padding 0 25px
   user-select none
   cursor pointer
   background-color $ui-noteList-backgroundColor
@@ -30,10 +30,10 @@ $control-height = 30px
   height 40px
   box-sizing border-box
   line-height 24px
-  padding-top 5px
-  padding-bottom 20px
+  padding-top 8px
   overflow ellipsis
   color $ui-text-color
+  border-bottom $ui-border
 
 .item-simple-title-empty
   font-weight normal
@@ -63,6 +63,7 @@ body[data-theme="dark"]
 
   .item-simple-title
     color $ui-dark-text-color
+    border-color $ui-dark-borderColor
 
   .item-simple-title-empty
     color $ui-dark-inactive-text-color
