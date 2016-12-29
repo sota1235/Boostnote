@@ -4,7 +4,7 @@
 import React, { PropTypes } from 'react'
 import { isArray } from 'lodash'
 import CSSModules from 'browser/lib/CSSModules'
-import styles from './NoteList.styl'
+import styles from './NoteItem.styl'
 
 /**
  * @description Tag element component.

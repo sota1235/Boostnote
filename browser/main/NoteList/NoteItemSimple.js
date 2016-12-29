@@ -3,7 +3,7 @@
  */
 import React, { PropTypes } from 'react'
 import CSSModules from 'browser/lib/CSSModules'
-import styles from './NoteList.styl'
+import styles from './NoteItem.styl'
 
 /**
  * @description Note item component when using simple display mode.
