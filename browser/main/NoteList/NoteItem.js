@@ -70,6 +70,11 @@ const NoteItem = ({ isActive, note, dateDisplay, handleNoteClick, handleNoteCont
         </div>
       </div>
 
+      {note.type === 'SNIPPET_NOTE'
+        ? <i styleName='item-title-icon' className='fa fa-fw fa-code' />
+        : <i styleName='item-title-icon' className='fa fa-fw fa-file-text-o' />
+      }
+
       {note.isStarred ?
         <i styleName='item-star' className='fa fa-star' /> : ''
       }
@@ -83,6 +88,7 @@ NoteItem.propTypes = {
   note: PropTypes.shape({
     storage: PropTypes.string.isRequired,
     key: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
     title: PropTypes.string.isrequired,
     tags: PropTypes.array,
     isStarred: PropTypes.bool.isRequired,

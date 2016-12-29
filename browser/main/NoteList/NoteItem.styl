@@ -21,6 +21,7 @@ $control-height = 30px
     .item-title-empty
     .item-bottom-tagList-empty
     .item-bottom-time
+    .item-title-icon
       color white
     .item-bottom-tagList-item
       background-color transparent
@@ -38,6 +39,7 @@ $control-height = 30px
   .item-title-empty
   .item-bottom-tagList-empty
   .item-bottom-time
+  .item-title-icon
     color white
   .item-bottom-tagList-item
     background-color transparent
@@ -54,6 +56,13 @@ $control-height = 30px
   padding-bottom 20px
   overflow ellipsis
   color $ui-text-color
+
+.item-title-icon
+  position absolute
+  top 20px
+  right 25px
+  font-size 14px
+  color $ui-inactive-text-color
 
 .item-title-empty
   font-weight normal
@@ -98,7 +107,7 @@ $control-height = 30px
 .item-star
   position absolute
   top 20px
-  right 20px
+  right 29px
   width 34px
   height 34px
   color $ui-favorite-star-button-color
@@ -138,6 +147,9 @@ body[data-theme="dark"]
 
   .item-title
     color $ui-dark-text-color
+
+  .item-title-icon
+    color $ui-darkinactive-text-color
 
   .item-title-empty
     color $ui-dark-inactive-text-color
