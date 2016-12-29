@@ -1,7 +1,14 @@
 .root
-  display: inline
+  display: inline-block
   position relative
   user-select none
+  vertical-align middle
+  width 400px
+  overflow-x scroll
+  white-space nowrap
+
+.root::-webkit-scrollbar
+  display none
 
 .tag
   display inline-block
