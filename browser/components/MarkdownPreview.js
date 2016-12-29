@@ -5,7 +5,7 @@ import CodeMirror from 'codemirror'
 import consts from 'browser/lib/consts'
 import Raphael from 'raphael'
 import flowchart from 'flowchart'
-import SequenceDiagram from 'sequence-diagram'
+import SequenceDiagram from 'js-sequence-diagrams'
 
 function decodeHTMLEntities (text) {
   var entities = [
