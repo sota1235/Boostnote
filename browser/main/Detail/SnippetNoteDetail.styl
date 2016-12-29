@@ -1,14 +1,18 @@
 @import('NoteDetailInfo')
+@import('DetailVars')
 
 .root
   absolute top bottom right
   border-width 0 0 1px
   border-style solid
   border-color $ui-borderColor
+  background-color $ui-noteDetail-backgroundColor
 
 .body
   absolute left right
-  top $info-height
+  left $note-detail-left-margin
+  right $note-detail-right-margin
+  top $info-height + $info-margin-under-border
   bottom $statusBar-height
   background-color $ui-noteDetail-backgroundColor
 
@@ -65,6 +69,7 @@
 body[data-theme="dark"]
   .root
     border-color $ui-dark-borderColor
+    background-color $ui-dark-noteDetail-backgroundColor
 
   .body
     background-color $ui-dark-noteDetail-backgroundColor
