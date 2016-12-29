@@ -7,7 +7,7 @@ $control-height = 30px
 
 .item
   position relative
-  padding 20px 25px
+  padding 0 25px
   user-select none
   cursor pointer
   background-color $ui-noteList-backgroundColor
@@ -25,6 +25,10 @@ $control-height = 30px
     .item-bottom-tagList-item
       background-color transparent
       color white
+
+.item-wrapper
+  padding 20px 0
+  border-bottom $ui-border
 
 .item--active
   @extend .item
@@ -114,6 +118,9 @@ body[data-theme="dark"]
       background-color $ui-active-color
     &:hover
       background-color alpha($ui-active-color, 20%)
+
+  .item-wrapper
+    border-color $ui-dark-borderColor
 
   .item--active
     @extend .item

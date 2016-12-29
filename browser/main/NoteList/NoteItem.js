@@ -51,27 +51,29 @@ const NoteItem = ({ isActive, note, dateDisplay, handleNoteClick, handleNoteCont
     onClick={e => handleNoteClick(e, `${note.storage}-${note.key}`)}
     onContextMenu={e => handleNoteContextMenu(e, `${note.storage}-${note.key}`)}
   >
-    <div styleName='item-bottom-time'>{dateDisplay}</div>
+    <div styleName='item-wrapper'>
+      <div styleName='item-bottom-time'>{dateDisplay}</div>
 
-    <div styleName='item-title'>
-      {note.title.trim().length > 0
-        ? note.title
-        : <span styleName='item-title-empty'>Empty</span>
-      }
-    </div>
-
-    <div styleName='item-bottom'>
-      <div styleName='item-bottom-tagList'>
-        {note.tags.length > 0
-          ? TagElementList(note.tags)
-          : ''
+      <div styleName='item-title'>
+        {note.title.trim().length > 0
+          ? note.title
+          : <span styleName='item-title-empty'>Empty</span>
         }
       </div>
-    </div>
 
-    {note.isStarred ?
-      <i styleName='item-star' className='fa fa-star' /> : ''
-    }
+      <div styleName='item-bottom'>
+        <div styleName='item-bottom-tagList'>
+          {note.tags.length > 0
+            ? TagElementList(note.tags)
+            : ''
+          }
+        </div>
+      </div>
+
+      {note.isStarred ?
+        <i styleName='item-star' className='fa fa-star' /> : ''
+      }
+    </div>
   </div>
 )
 
