@@ -69,12 +69,9 @@ const NoteItem = ({ isActive, note, dateDisplay, handleNoteClick, handleNoteCont
       </div>
     </div>
 
-    <i styleName='item-star'
-      className={note.isStarred
-        ? 'fa fa-star'
-        : 'fa fa-star-o'
-      }
-    />
+    {note.isStarred ?
+      <i styleName='item-star' className='fa fa-star' /> : ''
+    }
   </div>
 )
 
