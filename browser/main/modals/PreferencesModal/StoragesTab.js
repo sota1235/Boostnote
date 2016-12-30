@@ -63,6 +63,7 @@ class StoragesTab extends React.Component {
     })
     return (
       <div styleName='list'>
+        <div styleName='header'>Storages</div>
         {storageList.length > 0
           ? storageList
           : <div styleName='list-empty'>No storage found.</div>
