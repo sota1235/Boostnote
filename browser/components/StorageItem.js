@@ -4,6 +4,7 @@
 import React, { PropTypes } from 'react'
 import styles from './StorageItem.styl'
 import CSSModules from 'browser/lib/CSSModules'
+import { isNumber } from 'lodash'
 
 /**
  * @param {boolean} isActive
@@ -33,7 +34,7 @@ const StorageItem = ({
     >
       {isFolded ? folderName.substring(0, 1) : folderName}
     </span>
-    {!isFolded &&
+    {(!isFolded && isNumber(noteCount)) &&
       <span styleName='folderList-item-noteCount'>{noteCount}</span>
     }
     {isFolded &&
@@ -51,7 +52,7 @@ StorageItem.propTypes = {
   folderName: PropTypes.string.isRequired,
   folderColor: PropTypes.string,
   isFolded: PropTypes.bool.isRequired,
-  noteCount: PropTypes.number.isRequired,
+  noteCount: PropTypes.number,
 }
 
 export default CSSModules(StorageItem, styles)
