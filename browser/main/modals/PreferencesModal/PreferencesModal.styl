@@ -1,5 +1,7 @@
 @import('./Tab')
 
+top-bar--height = 50px
+
 .root
   modal()
   max-width 800px
@@ -10,17 +12,27 @@
 
 .top-bar
   absolute top left right
-  height 50px
+  height top-bar--height
   background-color $ui-backgroundColor
   border-bottom solid 1px $ui-borderColor
   p
     text-align center
     font-size 18px
-    line-height 50px
+    line-height top-bar--height
+
+.top-bar-close
+  position absolute
+  background-color transparent
+  border none
+  top 0
+  right 0
+  text-align center
+  width top-bar--height
+  height top-bar--height
 
 .nav
   absolute top left right
-  top 50px
+  top top-bar--height
   left 0
   width 140px
   margin-left 30px
@@ -54,7 +66,7 @@
 
 .content
   absolute left right bottom
-  top 50px
+  top top-bar--height
   left 140px
   margin-top 10px
   overflow-y auto

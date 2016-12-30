@@ -33,6 +33,10 @@ class Preferences extends React.Component {
     }
   }
 
+  handleEscButtonClick () {
+    this.props.close()
+  }
+
   renderContent () {
     const { boundingBox } = this.state
     let { dispatch, config, data } = this.props
@@ -113,6 +117,10 @@ class Preferences extends React.Component {
         <div styleName='top-bar'>
           <p>Your menu for Boostnote</p>
         </div>
+        <button styleName='top-bar-close' onClick={(e) => this.handleEscButtonClick(e)}>
+          <div styleName='top-bar-close-mark'>X</div>
+          <div styleName='top-bar-close-text'>esc</div>
+        </button>
         <div styleName='nav'>
           {navButtons}
         </div>
