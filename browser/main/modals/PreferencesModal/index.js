@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
-import ConfigTab from './ConfigTab'
+import HotkeyTab from './HotkeyTab'
+import UiTab from './UiTab'
 import InfoTab from './InfoTab'
 import StoragesTab from './StoragesTab'
 import CSSModules from 'browser/lib/CSSModules'
@@ -39,9 +40,16 @@ class Preferences extends React.Component {
     switch (this.state.currentTab) {
       case 'INFO':
         return <InfoTab/>
-      case 'CONFIG':
+      case 'HOTKEY':
         return (
-          <ConfigTab
+          <HotkeyTab
+            dispatch={dispatch}
+            config={config}
+          />
+        )
+      case 'UI':
+        return (
+          <UiTab
             dispatch={dispatch}
             config={config}
           />
@@ -73,9 +81,10 @@ class Preferences extends React.Component {
     let content = this.renderContent()
 
     let tabs = [
-      {target: 'STORAGES', label: 'Storages', icon: 'database'},
-      {target: 'CONFIG', label: 'Config', icon: 'cogs'},
-      {target: 'INFO', label: 'Info', icon: 'info-circle'}
+      {target: 'STORAGES', label: 'Storages'},
+      {target: 'HOTKEY',   label: 'Hotkey'},
+      {target: 'UI',       label: 'UI'},
+      {target: 'INFO',     label: 'Info'}
     ]
 
     let navButtons = tabs.map((tab) => {

@@ -9,7 +9,7 @@ const ipc = electron.ipcRenderer
 
 const OSX = global.process.platform === 'darwin'
 
-class HotkeyTagb extends React.Component {
+class HotkeyTab extends React.Component {
   constructor (props) {
     super(props)
 
