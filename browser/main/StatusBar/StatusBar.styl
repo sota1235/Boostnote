@@ -1,9 +1,12 @@
+@import('../Detail/DetailVars')
+
 .root
   absolute bottom left right
   height $statusBar-height
   background-color $ui-noteDetail-backgroundColor
   border-top $ui-border
   display flex
+  box-shadow $note-detail-box-shadow
 
 .blank
   flex 1
@@ -41,6 +44,7 @@ body[data-theme="dark"]
   .root
     background-color $ui-dark-noteDetail-backgroundColor
     border-color $ui-dark-borderColor
+    box-shadow none
 
   .zoom
     border-color $ui-dark-borderColor
