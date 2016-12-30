@@ -6,6 +6,7 @@ import modal from 'browser/main/lib/modal'
 import CreateFolderModal from 'browser/main/modals/CreateFolderModal'
 import RenameFolderModal from 'browser/main/modals/RenameFolderModal'
 import dataApi from 'browser/main/lib/dataApi'
+import StorageItemChild from 'browser/components/StorageItem'
 
 const { remote } = require('electron')
 const { Menu, MenuItem, dialog } = remote
@@ -134,34 +135,24 @@ class StorageItem extends React.Component {
     let { storage, location, isFolded, data } = this.props
     let { folderNoteMap } = data
     let folderList = storage.folders.map((folder) => {
-      let isActive = location.pathname.match(new RegExp('\/storages\/' + storage.key + '\/folders\/' + folder.key))
+      let isActive = !!(location.pathname.match(new RegExp('\/storages\/' + storage.key + '\/folders\/' + folder.key)))
       let noteSet = folderNoteMap.get(storage.key + '-' + folder.key)
 
       let noteCount = noteSet != null
         ? noteSet.size
         : 0
-      return <button styleName={isActive
-          ? 'folderList-item--active'
-          : 'folderList-item'
-        }
-        key={folder.key}
-        onClick={(e) => this.handleFolderButtonClick(folder.key)(e)}
-        onContextMenu={(e) => this.handleFolderButtonContextMenu(e, folder)}
-      >
-        <span styleName='folderList-item-name'
-          style={{borderColor: folder.color}}
-        >
-          {isFolded ? folder.name.substring(0, 1) : folder.name}
-        </span>
-        {!isFolded &&
-          <span styleName='folderList-item-noteCount'>{noteCount}</span>
-        }
-        {isFolded &&
-          <span styleName='folderList-item-tooltip'>
-            {folder.name}
-          </span>
-        }
-      </button>
+      return (
+        <StorageItemChild
+          key={folder.key}
+          isActive={isActive}
+          handleButtonClick={(e) => this.handleFolderButtonClick(folder.key)(e)}
+          handleContextMenu={(e) => this.handleFolderButtonContextMenu(e, folder)}
+          folderName={folder.name}
+          folderColor={folder.color}
+          isFolded={isFolded}
+          noteCount={noteCount}
+        />
+      )
     })
 
     let isActive = location.pathname.match(new RegExp('\/storages\/' + storage.key + '$'))
