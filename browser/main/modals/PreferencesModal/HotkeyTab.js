@@ -112,11 +112,11 @@ class HotkeyTab extends React.Component {
             >
               {this.state.isHotkeyHintOpen
                 ? 'Hide Hint'
-                : 'Show Hint'
+                : 'Hint?'
               }
             </button>
             <button styleName='group-control-rightButton'
-              onClick={(e) => this.handleSaveButtonClick(e)}>Save Hotkey
+              onClick={(e) => this.handleSaveButtonClick(e)}>Save
             </button>
             {keymapAlertElement}
           </div>
