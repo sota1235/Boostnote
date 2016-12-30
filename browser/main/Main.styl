@@ -11,10 +11,20 @@
 
 .slider
   absolute top bottom
+  top -2px
   width 0
+
+.slider-right
+  @extend .slider
+  z-index $right-slider-z-index
+  width 1px
+  box-shadow 0 2px 10px 0px #b1b1b1
 
 .slider--active
   @extend .slider
+
+.slider-right--active
+  @extend .slider-right
 
 .slider-hitbox
   absolute top bottom left right
@@ -27,3 +37,7 @@
 body[data-theme="dark"]
   .root
     absolute top left bottom right
+
+  .slider-right
+  .slider-right--active
+    box-shadow none

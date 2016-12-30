@@ -194,8 +194,8 @@ class Main extends React.Component {
               'location'
             ])}
           />
-          <div styleName={this.state.isRightSliderFocused ? 'slider--active' : 'slider'}
-            style={{left: this.state.listWidth}}
+          <div styleName={this.state.isRightSliderFocused ? 'slider-right--active' : 'slider-right'}
+            style={{left: this.state.listWidth - 1}}
             onMouseDown={(e) => this.handleRightSlideMouseDown(e)}
             draggable='false'
           >
