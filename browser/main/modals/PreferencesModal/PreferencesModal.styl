@@ -1,20 +1,35 @@
 .root
   modal()
-  max-width 540px
-  min-height 400px
+  max-width 800px
+  min-height 500px
   height 80%
   overflow hidden
   position relative
 
-.nav
+.top-bar
   absolute top left right
   height 50px
   background-color $ui-backgroundColor
   border-bottom solid 1px $ui-borderColor
+  p
+    text-align center
+    font-size 18px
+    line-height 50px
+
+.nav
+  absolute top left right
+  top 50px
+  left 0
+  width 140px
+  margin-left 30px
+  margin-top 20px
+  background-color $ui-backgroundColor
 
 .nav-button
+  font-size 14px
+  text-align left
   width 80px
-  height 50px
+  padding 7px 0
   border none
   background-color transparent
   color #939395
@@ -34,6 +49,7 @@
 .content
   absolute left right bottom
   top 50px
+  left 140px
   overflow-y auto
 
 body[data-theme="dark"]

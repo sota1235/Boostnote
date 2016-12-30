@@ -88,9 +88,6 @@ class Preferences extends React.Component {
           key={tab.target}
           onClick={(e) => this.handleNavButtonClick(tab.target)(e)}
         >
-          <i styleName='nav-button-icon'
-            className={'fa fa-' + tab.icon}
-          />
           <span styleName='nav-button-label'>
             {tab.label}
           </span>
@@ -104,6 +101,9 @@ class Preferences extends React.Component {
         tabIndex='-1'
         onKeyDown={(e) => this.handleKeyDown(e)}
       >
+        <div styleName='top-bar'>
+          <p>Your menu for Boostnote</p>
+        </div>
         <div styleName='nav'>
           {navButtons}
         </div>
