@@ -1,3 +1,5 @@
+@import('./Tab')
+
 .root
   padding 15px
   white-space pre
@@ -5,27 +7,39 @@
   color $ui-text-color
   width 100%
 
+.clear
+  clear both
+
 .top
-  text-align center
-  margin-bottom 25px
+  text-align left
+  margin-bottom 20px
+
+.icon-space
+  margin 20px 0
+  height 100px
+
+.icon
+  display inline-block
+  vertical-align middle
+
+.icon-right
+  display inline-block
+  vertical-align middle
+  margin-left 20px
 
 .appId
   font-size 24px
+  margin-bottom 13px
 
 .description
-  overflow hidden
-  white-space normal
-  line-height 1.5
-  margin 5px auto 10px
   font-size 14px
-  text-align center
 
 .madeBy
-  font-size 12px
+  font-size 14px
   $ui-inactive-text-color
 
 .copyright
-  font-size 12px
+  font-size 14px
   $ui-inactive-text-color
 
 .list
