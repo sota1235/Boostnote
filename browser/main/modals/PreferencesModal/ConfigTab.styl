@@ -1,39 +1,44 @@
+@import('./Tab')
+
 .root
   padding 15px
   color $ui-text-color
+  margin-bottom 30px
+
 .group
   margin-bottom 45px
+
 .group-header
-  font-size 24px
+  @extend .header
   color $ui-text-color
-  padding 5px
-  border-bottom $default-border
-  margin-bottom 15px
 
 .group-header2
-  font-size 18px
+  font-size 20px
   color $ui-text-color
-  padding 5px
   margin-bottom 15px
+  margin-top 30px
 
 .group-section
-  margin-bottom 15px
+  margin-bottom 20px
   display flex
   line-height 30px
+
 .group-section-label
   width 150px
-  text-align right
+  text-align left
   margin-right 10px
   font-size 14px
+
 .group-section-control
   flex 1
+
 .group-section-control-input
   height 30px
   vertical-align middle
-  width 150px
-  font-size 12px
+  width 400px
+  font-size $tab--button-font-size
   border solid 1px $border-color
-  border-radius 2px
+  border-radius $tab--input-border-radius
   padding 0 5px
   &:disabled
     background-color $ui-input--disabled-backgroundColor
@@ -45,7 +50,6 @@
   padding-left 15px
 
 .group-control
-  border-top $default-border
   padding-top 10px
   box-sizing border-box
   height 40px
@@ -56,22 +60,25 @@
       line-height 30px
       padding 0 5px
       float right
+
 .group-control-leftButton
-  float left
   colorDefaultButton()
-  border $default-border
-  border-radius 2px
-  height 30px
+  border none
+  font-size $tab--button-font-size
+  height $tab--button-height
   padding 0 15px
-  margin-right 5px
+  margin-right 10px
+
 .group-control-rightButton
   float right
   colorPrimaryButton()
   border none
-  border-radius 2px
-  height 30px
+  border-radius $tab--button-border-radius
+  font-size $tab--button-font-size
+  height $tab--button-height
   padding 0 15px
-  margin-right 5px
+  margin-right 10px
+
 .group-hint
   border $ui-border
   padding 10px 15px

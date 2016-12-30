@@ -22,12 +22,19 @@ class InfoTab extends React.Component {
   render () {
     return (
       <div styleName='root'>
+        <div styleName='header'>Info</div>
+
         <div styleName='top'>
-          <img styleName='icon' src='../resources/app.png' width='150' height='150'/>
-          <div styleName='appId'>Boostnote {appVersion}</div>
-          <div styleName='description'>
-            A simple markdown/snippet note app for developer.
+          <div styleName='icon-space'>
+            <img styleName='icon' src='../resources/app.png' width='92' height='92'/>
+            <div styleName='icon-right'>
+              <div styleName='appId'>Boostnote {appVersion}</div>
+              <div styleName='description'>
+                A simple markdown/snippet note app for developer.
+              </div>
+            </div>
           </div>
+          <div styleName='clear'></div>
           <div styleName='madeBy'>Made by&nbsp;
             <a href='http://maisin.co/'
               onClick={(e) => this.handleLinkClick(e)}
