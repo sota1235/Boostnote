@@ -54,6 +54,20 @@ code {
   ${lineNumber && 'display: block !important;'}
   font-family: ${codeBlockFontFamily.join(', ')};
 }
+
+h1, h2 {
+  border: none;
+}
+
+h1 {
+  padding-bottom: 4px;
+  margin: 1em 0 8px;
+}
+
+h2 {
+  padding-bottom: 0.2em;
+  margin: 1em 0 0.37em;
+}
 `
 }
 
