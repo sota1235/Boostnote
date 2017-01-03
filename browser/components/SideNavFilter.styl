@@ -1,0 +1,32 @@
+.menu
+  margin-bottom 30px
+
+.menu-button
+  navButtonColor()
+  height 32px
+  padding 0 15px
+  font-size 14px
+  width 100%
+  text-align left
+  overflow ellipsis
+
+.menu-button--active
+  @extend .menu-button
+  background-color $ui-button--active-backgroundColor
+  color $ui-button--active-color
+  &:hover
+    background-color $ui-button--active-backgroundColor
+
+.menu-button-label
+  margin-left 5px
+
+body[data-theme="dark"]
+  .menu-button
+    navDarkButtonColor()
+
+  .menu-button--active
+    @extend .menu-button
+    background-color $ui-dark-button--active-backgroundColor
+    color $ui-dark-button--active-color
+    &:hover
+      background-color $ui-dark-button--active-backgroundColor

@@ -1,12 +1,16 @@
+@import('../main/Detail/DetailVars.styl')
+
 .root
   absolute top bottom left right
-  width 100%
+  left $note-detail-left-margin
+  right $note-detail-right-margin
   height 100%
+  width 365px
+  background-color $ui-noteDetail-backgroundColor
 
 .description
   absolute top left right
   height 80px
-  border-bottom $ui-border
   box-sizing border-box
 
 .description-textarea
@@ -18,52 +22,43 @@
   padding 10px
   line-height 1.6
   box-sizing border-box
+  background-color $ui-noteDetail-backgroundColor
 
 .tabList
   absolute left right
   top 80px
   box-sizing border-box
   height 30px
-  border-bottom $ui-border
   display flex
-  background-color $ui-backgroundColor
+  background-color $ui-noteDetail-backgroundColor
 
 .tabList-item
   position relative
   flex 1
-  border-right $ui-border
+  overflow hidden
+  &:hover
+    background-color $ui-button--hover-backgroundColorg
 
 .tabList-item--active
   @extend .tabList-item
-  .tabList-item-button
-    border-color $brand-color
+  border-bottom $ui-border
 
 .tabList-item-button
   width 100%
   height 29px
-  navButtonColor()
-  outline none
-  border-left 4px solid transparent
-
-.tabList-item-deleteButton
-  position absolute
-  top 5px
-  height 20px
-  right 5px
-  width 20px
-  text-align center
+  overflow ellipsis
+  text-align left
+  padding-right 30px
+  padding-left 10px
   border none
-  padding 0
-  color transparent
   background-color transparent
-  border-radius 2px
-.tabList-plusButton
-  navButtonColor()
-  width 30px
+  transition 0.15s
+  &:hover
+    background-color $ui-button--hover-backgroundColor
 
 .tabView
   absolute left right bottom
-  top 110px
+  top 130px
 
 .tabView-content
   absolute top left right bottom
@@ -72,38 +67,31 @@
   width 100%
 
 body[data-theme="dark"]
+  .root
+    background-color $ui-dark-noteDetail-backgroundColor
+
   .description
     border-color $ui-dark-borderColor
+    background-color $ui-dark-noteDetail-backgroundColor
 
   .description-textarea
-    background-color $ui-dark-button--hover-backgroundColor
+    background-color $ui-dark-noteDetail-backgroundColor
     color white
 
   .tabList
-    background-color $ui-button--active-backgroundColor
-    border-bottom-color $ui-dark-borderColor
-    background-color $ui-dark-backgroundColor
+    background-color $ui-dark-noteDetail-backgroundColor
+
   .tabList-item
     border-color $ui-dark-borderColor
     &:hover
       background-color $ui-dark-button--hover-backgroundColor
-  .tabList-item--active
-    border-color $ui-dark-borderColor
-    .tabList-item-button
-      border-color $brand-color
-  .tabList-item-button
-    navDarkButtonColor()
-    border-left 4px solid transparent
-  .tabList-plusButton
-    navDarkButtonColor()
 
-  .tabView-top
-    border-color $ui-dark-borderColor
-  .tabView-top-name
-    border-color $ui-dark-borderColor
+  .tabList-item-button
+    border none
     color $ui-dark-text-color
-    background-color $ui-dark-button--hover-backgroundColor
-  .tabView-top-mode
-    border-color $ui-dark-borderColor
-    background-color $dark-default-button-background
-    color $ui-dark-inactive-text-color
+    background-color transparent
+    transition color background-color 0.15s
+    border-left 4px solid transparent
+    &:hover
+      color white
+      background-color $ui-dark-button--hover-backgroundColor

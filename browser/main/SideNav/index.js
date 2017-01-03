@@ -5,6 +5,7 @@ import { openModal } from 'browser/main/lib/modal'
 import PreferencesModal from '../modals/PreferencesModal'
 import ConfigManager from 'browser/main/lib/ConfigManager'
 import StorageItem from './StorageItem'
+import SideNavFilter from 'browser/components/SideNavFilter'
 
 const electron = require('electron')
 const { remote } = electron
@@ -39,8 +40,8 @@ class SideNav extends React.Component {
     let { data, location, config, dispatch } = this.props
 
     let isFolded = config.isSideNavFolded
-    let isHomeActive = location.pathname.match(/^\/home$/)
-    let isStarredActive = location.pathname.match(/^\/starred$/)
+    let isHomeActive = !!location.pathname.match(/^\/home$/)
+    let isStarredActive = !!location.pathname.match(/^\/starred$/)
 
     let storageList = data.storageMap.map((storage, key) => {
       return <StorageItem
@@ -69,20 +70,12 @@ class SideNav extends React.Component {
           </button>
         </div>
 
-        <div styleName='menu'>
-          <button styleName={isHomeActive ? 'menu-button--active' : 'menu-button'}
-            onClick={(e) => this.handleHomeButtonClick(e)}
-          >
-            <i className='fa fa-book fa-fw'/>
-            <span styleName='menu-button-label'>All Notes</span>
-          </button>
-          <button styleName={isStarredActive ? 'menu-button--active' : 'menu-button'}
-            onClick={(e) => this.handleStarredButtonClick(e)}
-          >
-            <i className='fa fa-star fa-fw'/>
-            <span styleName='menu-button-label'>Starred</span>
-          </button>
-        </div>
+        <SideNavFilter
+          isHomeActive={isHomeActive}
+          handleAllNotesButtonClick={(e) => this.handleHomeButtonClick(e)}
+          isStarredActive={isStarredActive}
+          handleStarredButtonClick={(e) => this.handleStarredButtonClick(e)}
+        />
 
         <div styleName='storageList'>
           {storageList.length > 0 ? storageList : (

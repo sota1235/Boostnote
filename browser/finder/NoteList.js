@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
-import NoteItem from './NoteItem'
-import _ from 'lodash'
+import NoteItem from 'browser/components/NoteItem'
+import moment from 'moment'
 
 class NoteList extends React.Component {
   constructor (props) {
@@ -59,16 +59,19 @@ class NoteList extends React.Component {
     let notesList = notes
       .slice(0, 10 + 10 * this.state.range)
       .map((note, _index) => {
-        let storage = storageMap[note.storage]
-        let folder = _.find(storage.folders, {key: note.folder})
+
+        const isActive = (index === _index)
+        const key = `${note.storage}-${note.key}`
+        const dateDisplay = moment(note.updatedAt).fromNow()
+
         return (
           <NoteItem
+            isActive={isActive}
             note={note}
-            key={`${note.storage}-${note.key}`}
-            storage={storage}
-            folder={folder}
-            isActive={index === _index}
-            onClick={(e) => this.props.handleNoteClick(e, _index)}
+            dateDisplay={dateDisplay}
+            key={key}
+            handleNoteClick={(e) => this.props.handleNoteClick(e, _index)}
+            handleNoteContextMenu={() => ''}
           />
         )
       })

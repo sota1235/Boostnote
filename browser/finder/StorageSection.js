@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import CSSModules from 'browser/lib/CSSModules'
 import styles from './StorageSection.styl'
+import StorageItem from 'browser/components/StorageItem'
 
 class StorageSection extends React.Component {
   constructor (props) {
@@ -30,20 +31,17 @@ class StorageSection extends React.Component {
   render () {
     let { storage, filter } = this.props
     let folderList = storage.folders
-      .map((folder) => {
-        return (
-          <button styleName={filter.type === 'FOLDER' && filter.folder === folder.key && filter.storage === storage.key
-              ? 'folderList-item--active'
-              : 'folderList-item'
-            }
-            style={{borderColor: folder.color}}
-            key={folder.key}
-            onClick={(e) => this.handleFolderClick(e, folder)}
-          >
-            {folder.name}
-          </button>
-        )
-      })
+      .map(folder => (
+        <StorageItem
+          key={folder.key}
+          isActive={filter.type === 'FOLDER' && filter.folder === folder.key && filter.storage === storage.key}
+          handleButtonClick={(e) => this.handleFolderClick(e, folder)}
+          folderName={folder.name}
+          folderColor={folder.color}
+          isFolded={false}
+        />
+      ))
+
     return (
       <div styleName='root'>
         <div styleName='header'>

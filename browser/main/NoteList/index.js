@@ -6,8 +6,8 @@ import _ from 'lodash'
 import ee from 'browser/main/lib/eventEmitter'
 import dataApi from 'browser/main/lib/dataApi'
 import ConfigManager from 'browser/main/lib/ConfigManager'
-import NoteItem from './NoteItem'
-import NoteItemSimple from './NoteItemSimple'
+import NoteItem from 'browser/components/NoteItem'
+import NoteItemSimple from 'browser/components/NoteItemSimple'
 
 const { remote } = require('electron')
 const { Menu, MenuItem, dialog } = remote
