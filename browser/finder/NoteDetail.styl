@@ -5,6 +5,7 @@
   left $note-detail-left-margin
   right $note-detail-right-margin
   height 100%
+  width 365px
   background-color $ui-noteDetail-backgroundColor
 
 .description
@@ -66,6 +67,9 @@
   width 100%
 
 body[data-theme="dark"]
+  .root
+    background-color $ui-dark-noteDetail-backgroundColor
+
   .description
     border-color $ui-dark-borderColor
     background-color $ui-dark-noteDetail-backgroundColor
@@ -82,11 +86,12 @@ body[data-theme="dark"]
     &:hover
       background-color $ui-dark-button--hover-backgroundColor
 
-  .tabList-item--active
-    border-color $ui-dark-borderColor
-    .tabList-item-button
-      border-color $brand-color
-
   .tabList-item-button
-    navDarkButtonColor()
+    border none
+    color $ui-dark-text-color
+    background-color transparent
+    transition color background-color 0.15s
     border-left 4px solid transparent
+    &:hover
+      color white
+      background-color $ui-dark-button--hover-backgroundColor
