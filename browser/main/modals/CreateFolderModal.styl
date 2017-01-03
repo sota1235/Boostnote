@@ -66,11 +66,22 @@
 body[data-theme="dark"]
   .root
     modalDark()
+    width 700px
+    height 200px
+    overflow hidden
+    position relative
+    padding 0 40px
 
   .header
-    background-color $ui-dark-button--hover-backgroundColor
+    background-color transparent
     border-color $ui-dark-borderColor
     color $ui-dark-text-color
+
+  .control-folder-label
+    color $ui-dark-text-color
+
+  .control-folder-input
+    border 1px solid #C9C9C9 // TODO: use variable.
 
   .closeButton
     border-color $ui-dark-borderColor
