@@ -6,6 +6,8 @@ import _ from 'lodash'
 import ee from 'browser/main/lib/eventEmitter'
 import dataApi from 'browser/main/lib/dataApi'
 import ConfigManager from 'browser/main/lib/ConfigManager'
+import NoteItem from 'browser/components/NoteItem'
+import NoteItemSimple from 'browser/components/NoteItemSimple'
 
 const { remote } = require('electron')
 const { Menu, MenuItem, dialog } = remote
@@ -314,57 +316,40 @@ class NoteList extends React.Component {
       .sort(sortFunc)
 
     let noteList = notes
-      .map((note) => {
-        if (note == null) return null
-        let tagElements = _.isArray(note.tags)
-          ? note.tags.map((tag) => {
-            return (
-              <span styleName='item-bottom-tagList-item'
-                key={tag}>
-                {tag}
-              </span>
-            )
-          })
-          : []
-        let isActive = location.query.key === note.storage + '-' + note.key
+      .map(note => {
+        if (note == null) {
+          return null
+        }
+
+        const isDefault = config.listStyle === 'DEFAULT'
+        const isActive = location.query.key === note.storage + '-' + note.key
+        const dateDisplay = moment(
+          config.sortBy === 'CREATED_AT' ?
+            note.createdAt : note.updatedAt
+        ).fromNow()
+        const key = `${note.storage}-${note.key}`
+
+        if (isDefault) {
+          return (
+            <NoteItem
+              isActive={isActive}
+              note={note}
+              dateDisplay={dateDisplay}
+              key={key}
+              handleNoteClick={this.handleNoteClick.bind(this)}
+              handleNoteContextMenu={this.handleNoteContextMenu.bind(this)}
+            />
+          )
+        }
+
         return (
-          <div styleName={isActive
-              ? 'item--active'
-              : 'item'
-            }
-            key={note.storage + '-' + note.key}
-            onClick={(e) => this.handleNoteClick(e, note.storage + '-' + note.key)}
-            onContextMenu={(e) => this.handleNoteContextMenu(e, note.storage + '-' + note.key)}
-          >
-            <div styleName='item-title'>
-              {note.type === 'SNIPPET_NOTE'
-                ? <i styleName='item-title-icon' className='fa fa-fw fa-code'/>
-                : <i styleName='item-title-icon' className='fa fa-fw fa-file-text-o'/>
-              }
-              {note.title.trim().length > 0
-                ? note.title
-                : <span styleName='item-title-empty'>Empty</span>
-              }
-            </div>
-
-            {config.listStyle === 'DEFAULT' &&
-              <div styleName='item-bottom'>
-                <i styleName='item-bottom-tagIcon'
-                  className='fa fa-tags fa-fw'
-                />
-                <div styleName='item-bottom-tagList'>
-                  {tagElements.length > 0
-                    ? tagElements
-                    : <span styleName='item-bottom-tagList-empty'>Not tagged yet</span>
-                  }
-                </div>
-
-                <div styleName='item-bottom-time'>
-                  {moment(config.sortBy === 'CREATED_AT' ? note.createdAt : note.updatedAt).fromNow()}
-                </div>
-              </div>
-            }
-          </div>
+          <NoteItemSimple
+            isActive={isActive}
+            note={note}
+            key={key}
+            handleNoteClick={this.handleNoteClick.bind(this)}
+            handleNoteContextMenu={this.handleNoteContextMenu.bind(this)}
+          />
         )
       })
 
@@ -391,10 +376,7 @@ class NoteList extends React.Component {
             }
             onClick={(e) => this.handleListStyleButtonClick(e, 'DEFAULT')}
           >
-            <i className='fa fa-th-list'/>
-            <span styleName='control-button-tooltip'>
-              Default Size
-            </span>
+            <i className='fa fa-th-large'/>
           </button>
           <button styleName={config.listStyle === 'SMALL'
               ? 'control-button--active'
@@ -402,10 +384,7 @@ class NoteList extends React.Component {
             }
             onClick={(e) => this.handleListStyleButtonClick(e, 'SMALL')}
           >
-            <i className='fa fa-list'/>
-            <span styleName='control-button-tooltip'>
-              Small Size
-            </span>
+            <i className='fa fa-list-ul'/>
           </button>
         </div>
         <div styleName='list'

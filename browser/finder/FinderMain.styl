@@ -21,6 +21,7 @@ $list-width = 250px
   outline none
   text-align center
   background-color transparent
+
 .result
   absolute left right bottom
   top $search-height
@@ -32,7 +33,7 @@ $list-width = 250px
   background-color $ui-backgroundColor
 
 .result-nav-filter
-  margin-bottom 5px
+  margin-bottom 10px
 
 .result-nav-filter-option
   height 25px
@@ -62,7 +63,7 @@ $list-width = 250px
 
 .result-nav-storageList
   absolute bottom left right
-  top 80px + 32px + 10px
+  top 80px + 32px + 10px + 10px
   overflow-y auto
 
 .result-list
@@ -70,15 +71,15 @@ $list-width = 250px
   absolute top bottom
   left $nav-width
   width $list-width
-  border-width 0 1px
-  border-style solid
-  border-color $ui-borderColor
   box-sizing border-box
   overflow-y auto
+  box-shadow 2px 0 15px -8px #b1b1b1
+  z-index 1
 
 .result-detail
   absolute top bottom right
   left $nav-width + $list-width
+  background-color $ui-noteDetail-backgroundColor
 
 body[data-theme="dark"]
   .root
@@ -104,7 +105,10 @@ body[data-theme="dark"]
 
   .result-list
     border-color $ui-dark-borderColor
+    box-shadow none
+    top 0
 
   .result-detail
     absolute top bottom right
     left $nav-width + $list-width
+    background-color $ui-dark-noteDetail-backgroundColor

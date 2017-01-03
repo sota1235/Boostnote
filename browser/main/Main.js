@@ -26,7 +26,7 @@ class Main extends React.Component {
     this.state = {
       isRightSliderFocused: false,
       listWidth: config.listWidth,
-      navWidth: config.listWidth,
+      navWidth: config.navWidth,
       isLeftSliderFocused: false
     }
   }
@@ -85,6 +85,7 @@ class Main extends React.Component {
   }
 
   handleMouseUp (e) {
+    // Change width of NoteList component.
     if (this.state.isRightSliderFocused) {
       this.setState({
         isRightSliderFocused: false
@@ -99,6 +100,8 @@ class Main extends React.Component {
         })
       })
     }
+
+    // Change width of SideNav component.
     if (this.state.isLeftSliderFocused) {
       this.setState({
         isLeftSliderFocused: false
@@ -106,10 +109,10 @@ class Main extends React.Component {
         let { dispatch } = this.props
         let navWidth = this.state.navWidth
         // TODO: ConfigManager should dispatch itself.
-        ConfigManager.set({listWidth: navWidth})
+        ConfigManager.set({ navWidth })
         dispatch({
           type: 'SET_NAV_WIDTH',
-          listWidth: navWidth
+          navWidth,
         })
       })
     }
@@ -162,7 +165,7 @@ class Main extends React.Component {
         />
         {!config.isSideNavFolded &&
           <div styleName={this.state.isLeftSliderFocused ? 'slider--active' : 'slider'}
-            style={{left: this.state.navWidth - 1}}
+            style={{left: this.state.navWidth}}
             onMouseDown={(e) => this.handleLeftSlideMouseDown(e)}
             draggable='false'
           >
@@ -191,15 +194,15 @@ class Main extends React.Component {
               'location'
             ])}
           />
-          <div styleName={this.state.isRightSliderFocused ? 'slider--active' : 'slider'}
-            style={{left: this.state.listWidth}}
+          <div styleName={this.state.isRightSliderFocused ? 'slider-right--active' : 'slider-right'}
+            style={{left: this.state.listWidth - 1}}
             onMouseDown={(e) => this.handleRightSlideMouseDown(e)}
             draggable='false'
           >
             <div styleName='slider-hitbox' />
           </div>
           <Detail
-            style={{left: this.state.listWidth + 1}}
+            style={{left: this.state.listWidth}}
             {..._.pick(this.props, [
               'dispatch',
               'data',

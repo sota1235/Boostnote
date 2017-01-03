@@ -1,0 +1,168 @@
+$control-height = 30px
+
+.root
+  absolute left bottom
+  top $topBar-height - 1
+  background-color $ui-noteList-backgroundColor
+
+.item
+  position relative
+  padding 0 25px
+  user-select none
+  cursor pointer
+  background-color $ui-noteList-backgroundColor
+  transition background-color 0.15s
+  &:hover
+    background-color alpha($ui-active-color, 20%)
+  &:active
+    background-color $ui-active-color
+    color white
+    .item-title
+    .item-title-empty
+    .item-bottom-tagList-empty
+    .item-bottom-time
+    .item-title-icon
+      color white
+    .item-bottom-tagList-item
+      background-color transparent
+      color white
+
+.item-wrapper
+  padding 20px 0
+  border-bottom $ui-border
+
+.item--active
+  @extend .item
+  background-color $ui-active-color
+  color white
+  .item-title
+  .item-title-empty
+  .item-bottom-tagList-empty
+  .item-bottom-time
+  .item-title-icon
+    color white
+  .item-bottom-tagList-item
+    background-color transparent
+    color white
+  .item-wrapper
+    border-color transparent
+  &:hover
+    background-color $ui-active-color
+
+.item-title
+  font-size 14px
+  height 40px
+  box-sizing border-box
+  line-height 24px
+  padding-top 5px
+  padding-bottom 20px
+  overflow ellipsis
+  color $ui-text-color
+
+.item-title-icon
+  position absolute
+  top 20px
+  right 25px
+  font-size 14px
+  color $ui-inactive-text-color
+
+.item-title-empty
+  font-weight normal
+  color $ui-inactive-text-color
+
+.item-bottom
+  position relative
+  bottom 0px
+  margin-top 2px
+  height 20px
+  font-size 12px
+  line-height 20px
+  overflow ellipsis
+  display flex
+
+.item-bottom-tagList
+  flex 1
+  overflow ellipsis
+  line-height 20px
+  color #FFFFFF
+
+.item-bottom-tagList-item
+  font-size 12px
+  margin-right 8px
+  padding 0 10px
+  height 20px
+  box-sizing border-box
+  border-radius 20px
+  vertical-align middle
+  background-color $ui-tag-backgroundColor
+  color #FFFFFF
+
+.item-bottom-tagList-empty
+  color $ui-inactive-text-color
+  vertical-align middle
+  font-size 10px
+  margin-left 5px
+
+.item-bottom-time
+  color $ui-inactive-text-color
+  font-size 12px
+
+.item-star
+  position absolute
+  top 20px
+  right 29px
+  width 34px
+  height 34px
+  color $ui-favorite-star-button-color
+  font-size 14px
+  padding 0
+  border-radius 17px
+
+body[data-theme="dark"]
+  .root
+    border-color $ui-dark-borderColor
+    background-color $ui-dark-noteList-backgroundColor
+
+  .item
+    border-color $ui-dark-borderColor
+    background-color $ui-dark-noteList-backgroundColor
+    &:active
+      background-color $ui-active-color
+    &:hover
+      background-color alpha($ui-active-color, 20%)
+
+  .item-wrapper
+    border-color $ui-dark-borderColor
+
+  .item--active
+    @extend .item
+    border-color $ui-dark-borderColor
+    background-color $ui-active-color
+    .item-wrapper
+      border-color transparent
+    .item-title
+      color white
+    .item-bottom-tagList-item
+      background-color transparent
+      color white
+    .item-bottom-tagList-empty
+      color white
+    &:hover
+      background-color $ui-active-color
+
+  .item-title
+    color $ui-dark-text-color
+
+  .item-title-icon
+    color $ui-darkinactive-text-color
+
+  .item-title-empty
+    color $ui-dark-inactive-text-color
+
+  .item-bottom-tagList-item
+    background-color $ui-dark-tag-backgroundColor
+    color $ui-dark-text-color
+
+  .item-bottom-tagList-empty
+    color $ui-inactive-text-color
+    vertical-align middle

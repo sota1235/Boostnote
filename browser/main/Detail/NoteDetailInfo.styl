@@ -1,0 +1,77 @@
+@import('DetailVars')
+
+$info-height = 60px
+$info-margin-under-border = 27px
+
+.info
+  absolute top left right
+  left $note-detail-left-margin
+  right $note-detail-right-margin
+  height $info-height
+  border-bottom $ui-border
+  background-color $ui-noteDetail-backgroundColor
+
+.info-left
+  float left
+  padding 0 5px
+  margin 0px 2px
+
+.info-left-button
+  width 34px
+  height 34px
+  navButtonColor()
+  color $ui-favorite-star-button-color
+  font-size 14px
+  margin 13px 2px
+  padding 0
+  border-radius 17px
+  &:hover .info-right-button-tooltip
+    opacity 1
+  &:focus
+    border-color $ui-favorite-star-button-color
+  &:active, &:active:hover
+    background-color $ui-favorite-star-button-color
+    color $ui-button--active-color
+
+.info-right
+  float right
+
+.info-right-button
+  width 34px
+  height 34px
+  border-radius 17px
+  font-size 14px
+  margin 13px 7px
+  padding 0
+  border none
+  color $ui-button-color
+  background-color transparent
+  &:hover
+    opacity 1
+    background-color $ui-button--hover-backgroundColor
+
+
+body[data-theme="dark"]
+  .info
+    border-color $ui-dark-borderColor
+    background-color $ui-dark-noteDetail-backgroundColor
+
+  .info-delete
+    color $ui-dark-text-color
+
+  .info-delete-confirmButton
+    colorDarkDangerButton()
+    color $ui-dark-text-color
+
+  .info-delete-cancelButton
+    colorDarkDefaultButton()
+    border-color $ui-dark-borderColor
+    color $ui-dark-text-color
+
+  .info-right-button
+    navDarkButtonColor()
+    border-color $ui-dark-borderColor
+    &:active
+      border-color $ui-dark-button--focus-borderColor
+    &:focus
+      border-color $ui-button--focus-borderColor

@@ -9,6 +9,7 @@ import styles from './FinderMain.styl'
 import StorageSection from './StorageSection'
 import NoteList from './NoteList'
 import NoteDetail from './NoteDetail'
+import SideNavFilter from 'browser/components/SideNavFilter'
 require('!!style!css!stylus?sourceMap!../main/global.styl')
 require('../lib/customMeta')
 
@@ -307,18 +308,12 @@ class FinderMain extends React.Component {
                   /> Only Markdown</label>
               </div>
             </div>
-            <button styleName={filter.type === 'ALL'
-                ? 'result-nav-menu--active'
-                : 'result-nav-menu'
-              }
-              onClick={(e) => this.handleAllNotesButtonClick(e)}
-            ><i className='fa fa-files-o fa-fw'/> All Notes</button>
-            <button styleName={filter.type === 'STARRED'
-                ? 'result-nav-menu--active'
-                : 'result-nav-menu'
-              }
-              onClick={(e) => this.handleStarredButtonClick(e)}
-            ><i className='fa fa-star fa-fw'/> Starred</button>
+            <SideNavFilter
+              isHomeActive={filter.type === 'ALL'}
+              handleAllNotesButtonClick={(e) => this.handleAllNotesButtonClick(e)}
+              isStarredActive={filter.type === 'STARRED'}
+              handleStarredButtonClick={(e) => this.handleStarredButtonClick(e)}
+            />
             <div styleName='result-nav-storageList'>
               {storageList}
             </div>

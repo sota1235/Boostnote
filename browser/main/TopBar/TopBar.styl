@@ -1,19 +1,19 @@
 .root
   position relative
-  background-color $ui-backgroundColor
+  background-color $ui-noteList-backgroundColor
   height $topBar-height - 1
+
 .root--expanded
   @extend .root
+
 $control-height = 34px
 
 .control
   position absolute
-  top 8px
+  top 13px
   left 8px
   right 8px
   height $control-height
-  border $ui-border
-  border-radius 20px
   overflow hidden
   display flex
 
@@ -28,6 +28,7 @@ $control-height = 34px
   line-height 32px
   width 35px
   color $ui-inactive-text-color
+  background-color $ui-noteList-backgroundColor
 
 .control-search-input
   display block
@@ -38,6 +39,7 @@ $control-height = 34px
     height 100%
     outline none
     border none
+    background-color $ui-noteList-backgroundColor
 
 .control-search-optionList
   position fixed
@@ -58,6 +60,7 @@ $control-height = 34px
   overflow ellipsis
   &:hover
     background-color alpha($ui-active-color, 10%)
+
 .control-search-optionList-item-folder
   border-left 4px solid transparent
   padding 2px 5px
@@ -66,40 +69,30 @@ $control-height = 34px
   font-size 12px
   height 16px
   margin-bottom 4px
+
 .control-search-optionList-item-folder-surfix
   font-size 10px
   margin-left 5px
   color $ui-inactive-text-color
+
 .control-search-optionList-item-type
   font-size 12px
   color $ui-inactive-text-color
   padding-right 3px
+
 .control-search-optionList-empty
   height 150px
   color $ui-inactive-text-color
   line-height 150px
   text-align center
 
-.control-contextButton
-  display block
-  width 20px
-  height $control-height - 2
-  navButtonColor()
-  border-left $ui-border
-  font-size 14px
-  line-height 28px
-  padding 0
-  &:active
-    border-color $ui-button--active-backgroundColor
-  &:hover .control-newPostButton-tooltip
-    opacity 1
-
 .control-newPostButton
   display block
-  width 36px
+  width 32px
   height $control-height - 2
   navButtonColor()
-  border-left $ui-border
+  border $ui-border
+  border-radius 32px
   font-size 14px
   line-height 28px
   padding 0
@@ -112,17 +105,18 @@ $control-height = 34px
   tooltip()
   position fixed
   pointer-events none
-  top 45px
-  left 385px
-  z-index 10
+  top 50px
+  left 433px
+  z-index 200
   padding 5px
   line-height normal
+  border-radius 2px
   opacity 0
   transition 0.1s
 
 body[data-theme="dark"]
   .root, .root--expanded
-    background-color $ui-dark-backgroundColor
+    background-color $ui-dark-noteList-backgroundColor
 
   .control
     border-color $ui-dark-borderColor
@@ -134,11 +128,13 @@ body[data-theme="dark"]
     line-height 32px
     width 35px
     color $ui-dark-inactive-text-color
+    background-color $ui-dark-noteList-backgroundColor
 
   .control-search-input
     input
-      background-color $dark-background-color
+      background-color $ui-dark-noteList-backgroundColor
       color $ui-dark-text-color
+
   .control-search-optionList
     color white
     background-color $ui-dark-button--hover-backgroundColor
@@ -162,10 +158,10 @@ body[data-theme="dark"]
   .control-search-optionList-empty
     color $ui-inactive-text-color
 
-  .control-contextButton,
   .control-newPostButton
     colorDarkDefaultButton()
     border-color $ui-dark-borderColor
+    background-color $ui-dark-noteList-backgroundColor
     &:active
       border-color $ui-dark-button--active-backgroundColor
 

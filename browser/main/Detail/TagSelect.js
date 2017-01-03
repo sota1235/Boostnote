@@ -8,7 +8,7 @@ class TagSelect extends React.Component {
     super(props)
 
     this.state = {
-      newTag: ''
+      newTag: '',
     }
   }
 
@@ -107,12 +107,12 @@ class TagSelect extends React.Component {
           <span styleName='tag'
             key={tag}
           >
+            <span styleName='tag-label'>{tag}</span>
             <button styleName='tag-removeButton'
               onClick={(e) => this.handleTagRemoveButtonClick(tag)(e)}
             >
-              <i className='fa fa-times fa-fw'/>
+              <i className='fa fa-times fa-fw tag-removeButton-icon'/>
             </button>
-            <span styleName='tag-label'>{tag}</span>
           </span>
         )
       })
@@ -125,10 +125,7 @@ class TagSelect extends React.Component {
         }
         styleName='root'
       >
-        <i styleName='icon'
-          className='fa fa-tags'
-        />
-          {tagList}
+        {tagList}
         <input styleName='newTag'
           ref='newTag'
           value={this.state.newTag}
@@ -136,7 +133,6 @@ class TagSelect extends React.Component {
           onChange={(e) => this.handleNewTagInputChange(e)}
           onKeyDown={(e) => this.handleNewTagInputKeyDown(e)}
         />
-
       </div>
     )
   }

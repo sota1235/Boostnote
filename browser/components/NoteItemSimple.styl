@@ -1,0 +1,89 @@
+$control-height = 30px
+
+.root
+  absolute left bottom
+  top $topBar-height - 1
+  background-color $ui-noteList-backgroundColor
+
+.item-simple
+  position relative
+  padding 0 25px
+  user-select none
+  cursor pointer
+  background-color $ui-noteList-backgroundColor
+  transition background-color 0.15s
+  &:hover
+    background-color alpha($ui-active-color, 20%)
+  &:active
+    background-color $ui-active-color
+    color white
+    .item-simple-title
+    .item-simple-title-empty
+    .item-simple-title-icon
+      color white
+
+.item-simple--active
+  @extend .item-simple
+  background-color $ui-active-color
+  color white
+  .item-simple-title
+  .item-simple-title-empty
+    border-color transparent
+    color white
+  .item-simple-title-icon
+    color white
+  &:hover
+    background-color $ui-active-color
+
+.item-simple-title
+  font-size 14px
+  height 40px
+  box-sizing border-box
+  line-height 24px
+  padding-top 8px
+  overflow ellipsis
+  color $ui-text-color
+  border-bottom $ui-border
+
+.item-simple-title-icon
+  font-size 12px
+  color $ui-inactive-text-color
+  padding-right 6px
+
+.item-simple-title-empty
+  font-weight normal
+  color $ui-inactive-text-color
+
+body[data-theme="dark"]
+  .root
+    border-color $ui-dark-borderColor
+    background-color $ui-dark-noteList-backgroundColor
+
+  .item-simple
+    border-color $ui-dark-borderColor
+    background-color $ui-dark-noteList-backgroundColor
+    &:active
+      background-color $ui-active-color
+    &:hover
+      background-color alpha($ui-active-color, 20%)
+
+  .item-simple--active
+    @extend .item-simple
+    border-color $ui-dark-borderColor
+    background-color $ui-active-color
+    .item-simple-title
+    .item-simple-title-empty
+      color white
+      border-color transparent
+    &:hover
+      background-color $ui-active-color
+
+  .item-simple-title
+    color $ui-dark-text-color
+    border-color $ui-dark-borderColor
+
+  .item-simple-title-icon
+    color $ui-darkinactive-text-color
+
+  .item-simple-title-empty
+    color $ui-dark-inactive-text-color

@@ -1,68 +1,19 @@
-$info-height = 75px
+@import('NoteDetailInfo')
+@import('DetailVars')
 
 .root
   absolute top right bottom
   border-width 0 0 1px
   border-style solid
   border-color $ui-borderColor
-
-.info
-  absolute top left right
-  height $info-height
-  border-bottom $ui-border
-  background-color $ui-backgroundColor
-
-.info-left
-  float left
-  padding 0 5px
-
-.info-left-top
-  height 40px
-  line-height 40px
-
-.info-left-top-folderSelect
-  display inline-block
-  height 34px
-  width 200px
-  vertical-align middle
-
-.info-left-bottom
-  height 30px
-
-.info-left-bottom-tagSelect
-  height 30px
-  line-height 30px
-
-.info-right
-  float right
-
-.info-right-button
-  width 34px
-  height 34px
-  border-radius 17px
-  navButtonColor()
-  border $ui-border
-  font-size 14px
-  margin 8px 2px
-  padding 0
-  &:active
-    border-color $ui-button--focus-borderColor
-  &:hover .info-right-button-tooltip
-    opacity 1
-  &:focus
-    border-color $ui-button--focus-borderColor
-
-.info-right-button-tooltip
-  tooltip()
-  position fixed
-  top 45px
-  padding 5px
-  opacity 0
-  border-radius 2px
+  background-color $ui-noteDetail-backgroundColor
+  box-shadow $note-detail-box-shadow
 
 .body
   absolute left right
-  top $info-height
+  left $note-detail-left-margin
+  right $note-detail-right-margin
+  top $info-height + $info-margin-under-border
   bottom $statusBar-height
 
 .body-noteEditor
@@ -71,32 +22,5 @@ $info-height = 75px
 body[data-theme="dark"]
   .root
     border-color $ui-dark-borderColor
-
-  .info
-    border-color $ui-dark-borderColor
-    background-color $ui-dark-backgroundColor
-
-  .info-delete
-    color $ui-dark-text-color
-
-  .info-delete-confirmButton
-    colorDarkDangerButton()
-    color $ui-dark-text-color
-
-  .info-delete-cancelButton
-    colorDarkDefaultButton()
-    border-color $ui-dark-borderColor
-    color $ui-dark-text-color
-
-  .info-right-button
-    navDarkButtonColor()
-    border-color $ui-dark-borderColor
-    &:active
-      border-color $ui-dark-button--focus-borderColor
-    &:hover .info-right-button-tooltip
-      opacity 1
-    &:focus
-      border-color $ui-button--focus-borderColor
-
-  .info-right-button-tooltip
-    darkTooltip()
+    background-color $ui-dark-noteDetail-backgroundColor
+    box-shadow none

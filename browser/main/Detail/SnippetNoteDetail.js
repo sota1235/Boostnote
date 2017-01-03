@@ -5,12 +5,12 @@ import CodeEditor from 'browser/components/CodeEditor'
 import MarkdownEditor from 'browser/components/MarkdownEditor'
 import StarButton from './StarButton'
 import TagSelect from './TagSelect'
-import FolderSelect from './FolderSelect'
+import LastUpdatedString from './LastUpdatedString'
 import dataApi from 'browser/main/lib/dataApi'
 import { hashHistory } from 'react-router'
 import ee from 'browser/main/lib/eventEmitter'
 import CodeMirror from 'codemirror'
-import SnippetTab from './SnippetTab'
+import SnippetTab from 'browser/components/SnippetTab'
 import StatusBar from '../StatusBar'
 import context from 'browser/lib/context'
 import ConfigManager from 'browser/main/lib/ConfigManager'
@@ -186,21 +186,6 @@ class SnippetNoteDetail extends React.Component {
 
   exportAsFile () {
 
-  }
-
-  handleShareButtonClick (e) {
-    let menu = new Menu()
-    menu.append(new MenuItem({
-      label: 'Export as a File',
-      disabled: true,
-      click: (e) => this.handlePreferencesButtonClick(e)
-    }))
-    menu.append(new MenuItem({
-      label: 'Export to Web',
-      disabled: true,
-      click: (e) => this.handlePreferencesButtonClick(e)
-    }))
-    menu.popup(remote.getCurrentWindow())
   }
 
   handleContextButtonClick (e) {
@@ -538,44 +523,22 @@ class SnippetNoteDetail extends React.Component {
       >
         <div styleName='info'>
           <div styleName='info-left'>
-            <div styleName='info-left-top'>
-              <FolderSelect styleName='info-left-top-folderSelect'
-                value={this.state.note.storage + '-' + this.state.note.folder}
-                ref='folder'
-                data={data}
-                onChange={(e) => this.handleFolderChange(e)}
-              />
-            </div>
-            <div styleName='info-left-bottom'>
-              <TagSelect
-                styleName='info-left-bottom-tagSelect'
-                ref='tags'
-                value={this.state.note.tags}
-                onChange={(e) => this.handleChange(e)}
-              />
-            </div>
-          </div>
-          <div styleName='info-right'>
-            <StarButton styleName='info-right-button'
+            <StarButton styleName='info-left-button'
               onClick={(e) => this.handleStarButtonClick(e)}
               isActive={note.isStarred}
             />
-            <button styleName='info-right-button'
-              onClick={(e) => this.handleShareButtonClick(e)}
-              disabled
-            >
-              <i className='fa fa-share-alt fa-fw'/>
-              <span styleName='info-right-button-tooltip'
-                style={{right: 20}}
-              >Share Note</span>
-            </button>
+            <TagSelect
+              ref='tags'
+              value={this.state.note.tags}
+              onChange={(e) => this.handleChange(e)}
+            />
+          </div>
+          <div styleName='info-right'>
+            <LastUpdatedString date={note.updatedAt} />
             <button styleName='info-right-button'
               onClick={(e) => this.handleContextButtonClick(e)}
             >
               <i className='fa fa-ellipsis-v'/>
-              <span styleName='info-right-button-tooltip'
-                style={{right: 5}}
-              >More Options</span>
             </button>
           </div>
         </div>

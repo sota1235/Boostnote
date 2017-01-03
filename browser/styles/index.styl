@@ -8,15 +8,18 @@ $danger-lighten-color = lighten(#c9302c, 5%)
 $statusBar-height = 24px
 $sideNav-width = 200px
 $sideNav--folded-width = 44px
-$topBar-height = 50px
+$topBar-height = 60px
 
 // UI default
 $ui-text-color = #515151
 $ui-inactive-text-color = #939395
 $ui-borderColor = #D1D1D1
-$ui-backgroundColor = #FAFAFA
+$ui-backgroundColor = #FFFFFF
+$ui-noteList-backgroundColor = #F3F3F3
+$ui-noteDetail-backgroundColor = #F4F4F4
 $ui-border = solid 1px $ui-borderColor
 $ui-active-color = #6AA5E9
+$ui-tag-backgroundColor = rgba(0, 0, 0, 0.3)
 
 // UI Button
 $ui-button-color = #939395
@@ -43,6 +46,9 @@ tooltip()
 // UI Input
 $ui-input--focus-borderColor = #369DCD
 $ui-input--disabled-backgroundColor = #DDD
+
+// Parts
+$ui-favorite-star-button-color = #FFC216
 
 /*
 * # Border
@@ -135,7 +141,10 @@ modal()
 
 // Dark theme
 $ui-dark-borderColor = lighten(#21252B, 20%)
-$ui-dark-backgroundColor = darken(#21252B, 10%)
+$ui-dark-backgroundColor = #1D1D1D
+$ui-dark-noteList-backgroundColor = #181818
+$ui-dark-noteDetail-backgroundColor = #0D0D0D
+$ui-dark-tag-backgroundColor = rgba(255, 255, 255, 0.3)
 $dark-background-color = lighten($ui-dark-backgroundColor, 10%)
 $ui-dark-text-color = #DDDDDD
 $ui-dark-button--active-color = white

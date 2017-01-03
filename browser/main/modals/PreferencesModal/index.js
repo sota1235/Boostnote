@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
-import ConfigTab from './ConfigTab'
+import HotkeyTab from './HotkeyTab'
+import UiTab from './UiTab'
 import InfoTab from './InfoTab'
 import StoragesTab from './StoragesTab'
 import CSSModules from 'browser/lib/CSSModules'
@@ -32,6 +33,10 @@ class Preferences extends React.Component {
     }
   }
 
+  handleEscButtonClick () {
+    this.props.close()
+  }
+
   renderContent () {
     const { boundingBox } = this.state
     let { dispatch, config, data } = this.props
@@ -39,9 +44,16 @@ class Preferences extends React.Component {
     switch (this.state.currentTab) {
       case 'INFO':
         return <InfoTab/>
-      case 'CONFIG':
+      case 'HOTKEY':
         return (
-          <ConfigTab
+          <HotkeyTab
+            dispatch={dispatch}
+            config={config}
+          />
+        )
+      case 'UI':
+        return (
+          <UiTab
             dispatch={dispatch}
             config={config}
           />
@@ -73,9 +85,10 @@ class Preferences extends React.Component {
     let content = this.renderContent()
 
     let tabs = [
-      {target: 'STORAGES', label: 'Storages', icon: 'database'},
-      {target: 'CONFIG', label: 'Config', icon: 'cogs'},
-      {target: 'INFO', label: 'Info', icon: 'info-circle'}
+      {target: 'STORAGES', label: 'Storages'},
+      {target: 'HOTKEY',   label: 'Hotkey'},
+      {target: 'UI',       label: 'UI'},
+      {target: 'INFO',     label: 'Info'}
     ]
 
     let navButtons = tabs.map((tab) => {
@@ -88,9 +101,6 @@ class Preferences extends React.Component {
           key={tab.target}
           onClick={(e) => this.handleNavButtonClick(tab.target)(e)}
         >
-          <i styleName='nav-button-icon'
-            className={'fa fa-' + tab.icon}
-          />
           <span styleName='nav-button-label'>
             {tab.label}
           </span>
@@ -104,6 +114,13 @@ class Preferences extends React.Component {
         tabIndex='-1'
         onKeyDown={(e) => this.handleKeyDown(e)}
       >
+        <div styleName='top-bar'>
+          <p>Your menu for Boostnote</p>
+        </div>
+        <button styleName='top-bar-close' onClick={(e) => this.handleEscButtonClick(e)}>
+          <div styleName='top-bar-close-mark'>X</div>
+          <div styleName='top-bar-close-text'>esc</div>
+        </button>
         <div styleName='nav'>
           {navButtons}
         </div>

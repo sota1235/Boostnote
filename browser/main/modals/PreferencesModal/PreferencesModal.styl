@@ -1,51 +1,93 @@
+@import('./Tab')
+
+top-bar--height = 50px
+
 .root
   modal()
-  max-width 540px
-  min-height 400px
+  max-width 800px
+  min-height 500px
   height 80%
   overflow hidden
   position relative
 
-.nav
+.top-bar
   absolute top left right
-  height 50px
+  height top-bar--height
   background-color $ui-backgroundColor
   border-bottom solid 1px $ui-borderColor
+  p
+    text-align center
+    font-size 18px
+    line-height top-bar--height
+
+.top-bar-close
+  position absolute
+  background-color transparent
+  color $ui-inactive-text-color
+  border none
+  top 0
+  right 0
+  text-align center
+  width top-bar--height
+  height top-bar--height
+
+.nav
+  absolute top left right
+  top top-bar--height
+  left 0
+  width 140px
+  margin-left 30px
+  margin-top 20px
+  background-color $ui-backgroundColor
 
 .nav-button
-  width 80px
-  height 50px
+  font-size 14px
+  text-align left
+  width 100px
+  margin 4px 0
+  padding 7px 0
+  padding-left 7px
   border none
+  border-radius 3px
   background-color transparent
-  color #939395
+  color $ui-text-color
   font-size 14px
   &:hover
-    color #515151
+    color $ui-active-color
 
 .nav-button--active
   @extend .nav-button
-  color #6AA5E9
+  color white
+  background-color $ui-active-color
   &:hover
-    color #6AA5E9
+    color white
 
 .nav-button-icon
   display block
 
 .content
   absolute left right bottom
-  top 50px
+  top top-bar--height
+  left 140px
+  margin-top 10px
   overflow-y auto
 
 body[data-theme="dark"]
   .root
     modalDark()
 
+  .top-bar
+    background-color transparent
+    border-color #4A4D52
+    p
+      color $tab--dark-text-color
+
   .nav
-    background-color $ui-dark-button--hover-backgroundColor
+    background-color transparent
     border-color $ui-dark-borderColor
 
   .nav-button
     background-color transparent
-    color #939395
+    color $tab--dark-text-color
     &:hover
       color $ui-dark-text-color
