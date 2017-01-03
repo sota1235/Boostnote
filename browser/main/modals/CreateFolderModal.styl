@@ -1,47 +1,52 @@
 .root
   modal()
-  max-width 340px
+  width 700px
+  height 200px
   overflow hidden
   position relative
+  padding 0 40px
 
 .header
   height 50px
+  margin-bottom 10px
+  margin-top 10px
   font-size 18px
   line-height 50px
-  padding 0 15px
   background-color $ui-backgroundColor
-  border-bottom solid 1px $ui-borderColor
   color $ui-text-color
 
-.closeButton
+.close-mark
+  font-size 15px
+
+.close
+  height 50px
   position absolute
-  top 10px
+  background-color transparent
+  color $ui-inactive-text-color
+  border none
+  top 7px
   right 10px
-  height 30px
-  width 0 25px
-  border $ui-border
-  border-radius 2px
-  color $ui-text-color
-  colorDefaultButton()
-
-.control
-  padding 25px 15px 15px
   text-align center
+  width top-bar--height
+  height top-bar--height
 
-.control-input
+.control-folder-label
+  text-align left
+  font-size 14px
+  color $ui-text-color
+
+.control-folder-input
   display block
   height 30px
-  width 240px
+  width 620px
   padding 0 5px
-  margin 0 auto 15px
-  border none
-  border-bottom solid 1px $border-color
-  border-radius 2px
+  margin 10px auto 15px
+  border 1px solid #C9C9C9 // TODO: use variable.
+  border-radius 5px
   background-color transparent
   outline none
   vertical-align middle
   font-size 18px
-  text-align center
   &:disabled
     background-color $ui-input--disabled-backgroundColor
   &:focus, &:active
@@ -50,10 +55,12 @@
 .control-confirmButton
   display block
   height 30px
+  width 620px
   border none
-  border-radius 2px
+  border-radius 5px
   padding 0 25px
-  margin 0 auto
+  margin 20px auto
+  font-size 14px
   colorPrimaryButton()
 
 body[data-theme="dark"]

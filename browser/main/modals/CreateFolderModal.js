@@ -75,24 +75,27 @@ class CreateFolderModal extends React.Component {
         onKeyDown={(e) => this.handleKeyDown(e)}
       >
         <div styleName='header'>
-          <div styleName='title'>New Folder</div>
+          <div styleName='title'>Create new folder</div>
         </div>
-        <button styleName='closeButton'
-          onClick={(e) => this.handleCloseButtonClick(e)}
-        >Close</button>
+        <button styleName='close' onClick={(e) => this.handleCloseButtonClick(e)}>
+          <div styleName='close-mark'>X</div>
+          <div styleName='close-text'>esc</div>
+        </button>
 
         <div styleName='control'>
-          <input styleName='control-input'
-            placeholder='Folder Name'
-            ref='name'
-            value={this.state.name}
-            onChange={(e) => this.handleChange(e)}
-            onKeyDown={(e) => this.handleInputKeyDown(e)}
-          />
+          <div styleName='control-folder'>
+            <div styleName='control-folder-label'>Folder name</div>
+            <input styleName='control-folder-input'
+              ref='name'
+              value={this.state.name}
+              onChange={(e) => this.handleChange(e)}
+              onKeyDown={(e) => this.handleInputKeyDown(e)}
+            />
+          </div>
           <button styleName='control-confirmButton'
             onClick={(e) => this.handleConfirmButtonClick(e)}
           >
-            Confirm
+            Create Folder
           </button>
         </div>
       </div>
