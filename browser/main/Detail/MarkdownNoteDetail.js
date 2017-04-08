@@ -90,8 +90,6 @@ class MarkdownNoteDetail extends React.Component {
       }
     }
 
-    title = markdown.strip(title)
-
     return title
   }
 
@@ -100,7 +98,7 @@ class MarkdownNoteDetail extends React.Component {
 
     note.content = this.refs.content.value
     note.tags = this.refs.tags.value
-    note.title = this.findTitle(note.content)
+    note.title = markdown.strip(this.findTitle(note.content))
     note.updatedAt = new Date()
 
     this.setState({
